@@ -1,0 +1,314 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  const posts = [
+    {
+      slug: "como-gestionar-la-ansiedad-en-el-trabajo",
+      title: "Cómo gestionar la ansiedad en el entorno laboral",
+      excerpt:
+        "Estrategias prácticas para manejar el estrés diario, establecer límites saludables y evitar el burnout profesional.",
+      image:
+        "https://images.unsplash.com/photo-1772408195534-8a080196dd51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      date: "2026-03-12",
+      dateDisplay: "12 de marzo de 2026",
+      category: "Ansiedad",
+      author: "Dra. María José Duarte Barrio",
+      readTime: "5 min",
+      content: [
+        {
+          type: "p",
+          text: "El entorno laboral puede convertirse en una fuente importante de estrés y ansiedad. Las exigencias del trabajo, los plazos ajustados, los conflictos con compañeros o jefes, y la dificultad para desconectar son factores que, acumulados, pueden desbordar nuestra capacidad de gestión emocional.",
+        },
+        { type: "h2", text: "¿Por qué la ansiedad laboral es tan común?" },
+        {
+          type: "p",
+          text: 'Vivimos en una cultura que premia la productividad por encima del bienestar. El "siempre disponible" y el trabajo sin límites claros han normalizado niveles de exigencia que nuestro sistema nervioso no puede sostener indefinidamente sin consecuencias.',
+        },
+        { type: "h2", text: "Estrategias prácticas para gestionarla" },
+        {
+          type: "p",
+          text: "1. Establece límites horarios claros. Define cuándo termina tu jornada y cúmplelo. Apaga las notificaciones del trabajo fuera de ese horario.",
+        },
+        {
+          type: "p",
+          text: "2. Practica pausas activas. Cada 90 minutos, levántate, estira, respira. Nuestro cerebro no está diseñado para concentrarse de forma ininterrumpida.",
+        },
+        {
+          type: "p",
+          text: "3. Identifica los detonantes. ¿Qué situaciones concretas disparan tu ansiedad? ¿El correo de tu jefe? ¿Las reuniones inesperadas? Conocerlos te da poder para prepararte.",
+        },
+        {
+          type: "p",
+          text: "4. Aprende a decir no. Asumir más de lo que puedes manejar es una de las principales causas de burnout. La asertividad es una habilidad que se entrena.",
+        },
+        { type: "h2", text: "Cuándo buscar ayuda profesional" },
+        {
+          type: "p",
+          text: "Si la ansiedad interfiere con tu rendimiento, sueño o relaciones durante más de dos semanas, es momento de considerar apoyo psicológico. No esperes a estar al límite para pedir ayuda. La terapia es mucho más efectiva en etapas tempranas.",
+        },
+      ],
+    },
+    {
+      slug: "comunicacion-asertiva-en-pareja",
+      title: "El secreto de la comunicación asertiva en pareja",
+      excerpt:
+        "Aprende a expresar tus necesidades sin reproches y a escuchar a tu pareja desde la empatía y la conexión emocional.",
+      image:
+        "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      date: "2026-02-28",
+      dateDisplay: "28 de febrero de 2026",
+      category: "Pareja",
+      author: "Dra. María José Duarte Barrio",
+      readTime: "6 min",
+      content: [
+        {
+          type: "p",
+          text: "La mayoría de los problemas de pareja tienen en su raíz una dificultad de comunicación. No es que no nos queramos, es que no sabemos cómo expresar lo que necesitamos sin que el otro lo viva como un ataque.",
+        },
+        { type: "h2", text: "¿Qué es la comunicación asertiva?" },
+        {
+          type: "p",
+          text: "La asertividad es la capacidad de expresar nuestros pensamientos, sentimientos y necesidades de manera directa, honesta y respetuosa, sin agredir al otro ni someternos a sus deseos en detrimento de los nuestros.",
+        },
+        {
+          type: "h2",
+          text: "Los cuatro jinetes de la comunicación destructiva",
+        },
+        {
+          type: "p",
+          text: "El investigador John Gottman identificó cuatro patrones que predicen la ruptura de pareja: la crítica, el desprecio, la actitud defensiva y el bloqueo emocional. Reconocerlos en tu relación es el primer paso para cambiarlos.",
+        },
+        { type: "h2", text: "Técnicas para mejorar vuestra comunicación" },
+        {
+          type: "p",
+          text: 'Usa mensajes en primera persona. En vez de "Nunca me escuchas", prueba con "Me siento ignorado/a cuando estás con el móvil mientras te hablo". Describe el comportamiento concreto y cómo te afecta, sin generalizar ni atacar.',
+        },
+        {
+          type: "p",
+          text: "Practica la escucha activa. Escuchar no es esperar tu turno para hablar. Es intentar comprender genuinamente la perspectiva del otro antes de responder.",
+        },
+      ],
+    },
+    {
+      slug: "mindfulness-para-principiantes",
+      title: "Mindfulness para principiantes: 5 ejercicios diarios",
+      excerpt:
+        "Descubre cómo integrar la atención plena en tu rutina con estos sencillos ejercicios que solo te tomarán unos minutos al día.",
+      image:
+        "https://images.unsplash.com/photo-1673219498641-e54db77132a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      date: "2026-01-15",
+      dateDisplay: "15 de enero de 2026",
+      category: "Mindfulness",
+      author: "Dra. María José Duarte Barrio",
+      readTime: "4 min",
+      content: [
+        {
+          type: "p",
+          text: "El mindfulness, o atención plena, es la práctica de dirigir nuestra atención al momento presente, sin juzgar. Aunque tiene raíces en la meditación budista, la ciencia occidental lleva décadas estudiando y validando sus beneficios para la salud mental.",
+        },
+        { type: "h2", text: "¿Por qué funciona?" },
+        {
+          type: "p",
+          text: 'Nuestro cerebro pasa la mayor parte del tiempo en "piloto automático", rumiando el pasado o preocupándose por el futuro. El mindfulness entrena la capacidad de regresar al presente, reduciendo la activación del sistema de estrés.',
+        },
+        { type: "h2", text: "5 ejercicios para empezar hoy" },
+        {
+          type: "p",
+          text: "1. Respiración consciente (3 minutos). Simplemente observa tu respiración sin cambiarla. Nota cómo el aire entra y sale. Cuando tu mente se vaya, vuelve suavemente a la respiración.",
+        },
+        {
+          type: "p",
+          text: "2. Scan corporal. Recorre mentalmente tu cuerpo de los pies a la cabeza, observando sensaciones sin intentar cambiarlas.",
+        },
+        {
+          type: "p",
+          text: "3. Comer con atención. En una comida al día, come sin pantallas. Observa sabores, texturas, olores. Come despacio.",
+        },
+        {
+          type: "p",
+          text: "4. Caminar con atención. En tu próximo paseo, presta atención a cada paso. Al contacto del pie con el suelo, a los sonidos del entorno.",
+        },
+        {
+          type: "p",
+          text: "5. Pausa de 1 minuto. Antes de responder un email difícil o entrar a una reunión importante, para un momento, respira tres veces profundamente y observa cómo te sientes.",
+        },
+      ],
+    },
+  ];
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title,
+  description: post.excerpt,
+  image: post.image,
+  datePublished: post.date,
+  author: {
+    "@type": "Person",
+    name: post.author,
+    url: "https://mariajoseduartebarriopsicologia.com/#sobre-mi",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Dra. María José Duarte Barrio · Psicología Clínica",
+    url: "https://mariajoseduartebarriopsicologia.com",
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `https://mariajoseduartebarriopsicologia.com/blog/${post.slug}`,
+  },
+};
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.excerpt}
+  ogType="article"
+  ogImage={post.image}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article
+    class="pt-32 pb-24 bg-stone-50 min-h-screen"
+    itemscope
+    itemtype="https://schema.org/BlogPosting"
+  >
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl mb-12">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors mb-8 group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          class="group-hover:-translate-x-1 transition-transform"
+          aria-hidden="true"
+          ><path d="m19 12H5"></path><path d="m12 5-7 7 7 7"></path></svg
+        >
+         Volver al blog
+      </a>
+
+      <div class="flex items-center gap-3 mb-6">
+        <span
+          class="bg-teal-50 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide"
+          itemprop="articleSection">{post.category}</span
+        >
+        <span class="text-stone-400">·</span>
+        <time
+          datetime={post.date}
+          class="text-stone-500 text-sm"
+          itemprop="datePublished">{post.dateDisplay}</time
+        >
+        <span class="text-stone-400">·</span>
+        <span class="text-stone-500 text-sm">{post.readTime} de lectura</span>
+      </div>
+
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 leading-tight mb-6"
+        itemprop="headline"
+      >
+        {post.title}
+      </h1>
+      <p
+        class="text-xl text-stone-600 leading-relaxed mb-8"
+        itemprop="description"
+      >
+        {post.excerpt}
+      </p>
+
+      <div
+        class="flex items-center gap-3 pb-8 border-b border-stone-200"
+        itemprop="author"
+        itemscope
+        itemtype="https://schema.org/Person"
+      >
+        <div
+          class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-serif font-medium"
+          aria-hidden="true"
+        >
+          E
+        </div>
+        <div>
+          <p class="font-medium text-stone-900 text-sm" itemprop="name">
+            {post.author}
+          </p>
+          <p class="text-stone-500 text-xs">Psicóloga Colegiada · Nº M-00000</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl mb-12">
+      <div class="rounded-[2rem] overflow-hidden shadow-lg aspect-video">
+        <img
+          src={post.image}
+          alt={post.title}
+          class="w-full h-full object-cover"
+          width="800"
+          height="450"
+          loading="eager"
+          itemprop="image"
+        />
+      </div>
+    </div>
+
+    <div
+      class="container mx-auto px-4 md:px-6 max-w-3xl"
+      itemprop="articleBody"
+    >
+      <div class="prose prose-stone prose-lg max-w-none">
+        {
+          post.content.map((block: { type: string; text: string }) =>
+            block.type === "h2" ? (
+              <h2 class="text-2xl md:text-3xl font-serif font-medium text-stone-900 mt-12 mb-6">
+                {block.text}
+              </h2>
+            ) : (
+              <p class="text-stone-600 leading-relaxed mb-6">{block.text}</p>
+            ),
+          )
+        }
+      </div>
+
+      <div
+        class="mt-16 bg-teal-50 border border-teal-100 rounded-[2rem] p-8 md:p-10 text-center"
+      >
+        <p class="text-teal-800 font-medium text-lg mb-2">
+          ¿Crees que podrías beneficiarte de apoyo psicológico?
+        </p>
+        <p class="text-stone-600 mb-6">
+          La primera consulta informativa es gratuita y sin compromisos.
+        </p>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Hablar con María José
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

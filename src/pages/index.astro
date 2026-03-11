@@ -1,0 +1,1163 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import majofoto from "../assets/images/majo4.jpeg";
+import majofoto2 from "../assets/images/majo5.jpeg";
+import { Image } from "astro:assets";
+
+const SERVICES = [
+  {
+    title: "Terapia Individual",
+    description:
+      "Un espacio para ti donde abordaremos ansiedad, depresión, autoestima, gestión emocional o crisis vitales.",
+    image:
+      "https://images.unsplash.com/photo-1703449481095-bb99a6928f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+    tags: ["Ansiedad", "Depresión", "Crecimiento personal"],
+    icon: "user",
+  },
+  {
+    title: "Terapia Sensorio Motriz",
+    description:
+      "Enfoque terapéutico que combina el procesamiento verbal con la conciencia corporal, trabajando directamente con las sensaciones físicas para sanar traumas y tensiones emocionales.",
+    image:
+      "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+    tags: ["Conflictos", "Comunicación", "Infidelidad"],
+    icon: "users",
+  },
+];
+
+const PRICING = [
+  {
+    title: "Terapia Individual Online",
+    price: "60€",
+    duration: "55 min",
+    features: [
+      "Sesión por videollamada segura",
+      "Flexibilidad horaria",
+      "Material de apoyo entre sesiones",
+      "Seguimiento por email",
+    ],
+    highlight: true,
+  },
+  {
+    title: "Terapia Individual Presencial",
+    price: "70€",
+    duration: "55 min",
+    features: [
+      "Consulta en Málaga Centro",
+      "Entorno seguro y acogedor",
+      "Material de apoyo impreso",
+      "Parking cercano disponible",
+    ],
+    highlight: false,
+  },
+  // {
+  //   title: "Terapia de Pareja",
+  //   price: "85€",
+  //   duration: "75 min",
+  //   features: [
+  //     "Online o Presencial",
+  //     "Abordaje conjunto",
+  //     "Herramientas de comunicación",
+  //     "Ejercicios para realizar en casa",
+  //   ],
+  //   highlight: false,
+  // },
+];
+
+const FAQS = [
+  {
+    question: "¿Es efectiva la terapia online?",
+    answer:
+      "Absolutamente. Numerosos estudios demuestran que la terapia online es tan efectiva como la presencial para la mayoría de las dificultades psicológicas, con la ventaja añadida de la comodidad y la flexibilidad.",
+  },
+  {
+    question: "¿Cómo es la primera sesión?",
+    answer:
+      "La primera sesión (de pago) es de evaluación inicial. Hablaremos sobre qué te ha traído a consulta, tu historia personal y estableceremos unos primeros objetivos terapéuticos. Es un espacio para conocernos y ver si encajamos.",
+  },
+  {
+    question: "¿Qué plataforma se usa para las sesiones online?",
+    answer:
+      "Utilizo Google Meet o Zoom, plataformas seguras que garantizan la confidencialidad de nuestras sesiones. Te enviaré un enlace privado antes de cada sesión.",
+  },
+  {
+    question: "¿Cuánto dura un proceso terapéutico?",
+    answer:
+      "Depende completamente de cada persona y de sus objetivos. Mi enfoque es dotarte de herramientas para que puedas ser autónomo/a lo antes posible, pero el ritmo lo marcas tú.",
+  },
+  {
+    question: "¿Qué pasa si tengo que cancelar una sesión?",
+    answer:
+      "Pido que las cancelaciones se realicen con un mínimo de 24 horas de antelación. Las sesiones canceladas con menos tiempo tendrán que ser abonadas íntegramente.",
+  },
+];
+
+const STEPS = [
+  {
+    icon: "💬",
+    title: "1. Primer Contacto",
+    description:
+      "Escríbeme para solicitar tu cita. Realizaremos una breve llamada gratuita (15 min) para conocernos y valorar si puedo ayudarte.",
+  },
+  {
+    icon: "📋",
+    title: "2. Evaluación",
+    description:
+      "Durante las primeras sesiones, exploraremos tu historia, identificaremos los problemas principales y definiremos los objetivos terapéuticos.",
+  },
+  {
+    icon: "📈",
+    title: "3. Tratamiento",
+    description:
+      "Trabajaremos juntos con herramientas prácticas y adaptadas a ti para conseguir los cambios que necesitas y mejorar tu bienestar.",
+  },
+];
+
+const RECENT_POSTS = [
+  {
+    slug: "como-gestionar-la-ansiedad-en-el-trabajo",
+    title: "Cómo gestionar la ansiedad en el entorno laboral",
+    excerpt:
+      "Estrategias prácticas para manejar el estrés diario, establecer límites saludables y evitar el burnout profesional.",
+    image:
+      "https://images.unsplash.com/photo-1772408195534-8a080196dd51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    date: "12 Mar, 2026",
+    category: "Ansiedad",
+  },
+  {
+    slug: "comunicacion-asertiva-en-pareja",
+    title: "El secreto de la comunicación asertiva en pareja",
+    excerpt:
+      "Aprende a expresar tus necesidades sin reproches y a escuchar a tu pareja desde la empatía y la conexión emocional.",
+    image:
+      "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    date: "28 Feb, 2026",
+    category: "Pareja",
+  },
+];
+---
+
+<BaseLayout
+  title="Psicóloga Online y Presencial en Málaga · Dra. María José Duarte Barrio"
+  description="Psicóloga colegiada especializada en ansiedad, depresión y terapia de pareja. Sesiones online y presenciales en Málaga. Basado en evidencia científica. Primera consulta informativa gratuita."
+>
+  <!-- ==============================
+       HERO
+  ============================== -->
+  <section
+    id="inicio"
+    class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-stone-50"
+  >
+    <div
+      class="absolute inset-0 z-0 opacity-10 pointer-events-none"
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        class="w-full h-full text-teal-800 fill-current"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div
+      class="container mx-auto px-4 md:px-6 max-w-6xl z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center"
+    >
+      <div class="flex flex-col gap-6 fade-in-up">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-sm font-medium w-fit"
+        >
+          ✨ <span>Terapia Online y Presencial</span>
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-stone-900 leading-tight"
+        >
+          Encuentra el equilibrio para vivir con más <em
+            class="text-teal-700 not-italic">calma y claridad</em
+          >
+        </h1>
+
+        <p class="text-lg md:text-xl text-stone-600 leading-relaxed max-w-xl">
+          Acompañamiento psicológico profesional basado en evidencia para
+          superar la ansiedad, mejorar tus relaciones y reconectar contigo
+          mismo.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <a
+            href="/#contacto"
+            class="inline-flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/40 hover:-translate-y-0.5"
+          >
+            Reserva tu primera sesión
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+            >
+          </a>
+          <a
+            href="/#como-funciona"
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-700 border border-stone-200 px-8 py-4 rounded-full font-medium transition-all"
+          >
+            Saber más
+          </a>
+        </div>
+
+        <div
+          class="flex items-center gap-6 mt-8 pt-6 border-t border-stone-200"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-teal-600"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path d="m22 8-6 4 6 4V8Z"></path><rect
+                width="14"
+                height="12"
+                x="2"
+                y="6"
+                rx="2"
+                ry="2"></rect></svg
+            >
+            <span class="text-sm font-medium text-stone-600"
+              >Sesiones Online</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-teal-600"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+              ></path><circle cx="12" cy="10" r="3"></circle></svg
+            >
+            <span class="text-sm font-medium text-stone-600"
+              >Centro de Málaga</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="relative lg:h-[600px] flex items-center justify-center fade-in-up"
+        style="animation-delay:.2s"
+      >
+        <div
+          class="absolute inset-0 bg-teal-100 rounded-[3rem] rotate-3 scale-95 opacity-50"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="relative w-full max-w-md mx-auto aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white"
+        >
+          <!-- <img
+            src="https://images.unsplash.com/photo-1603754060338-5a1dbd8377fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+            alt="Psicóloga María José Duarte Barrio en sesión online"
+            class="w-full h-full object-cover object-center"
+            width="480"
+            height="600"
+            loading="eager"
+          /> -->
+          <Image
+            src={majofoto}
+            alt="Dra. Maria Jose Duarte Barrio"
+            width={480}
+            height={600}
+          />
+          <div
+            class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center gap-4"
+          >
+            <div
+              class="bg-teal-100 p-3 rounded-full text-teal-700"
+              aria-hidden="true"
+            >
+              🛡️
+            </div>
+            <div>
+              <p class="font-semibold text-stone-900">Espacio Seguro</p>
+              <p class="text-xs text-stone-600">
+                100% confidencial y sin juicios
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SOBRE MÍ
+  ============================== -->
+  <section id="sobre-mi" class="py-24 bg-white relative overflow-hidden">
+    <div
+      class="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50 rounded-bl-[10rem] -z-10 opacity-60"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-center"
+    >
+      <div class="reveal">
+        <div
+          class="aspect-[4/5] max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl"
+        >
+          <!-- <img
+            src="https://images.unsplash.com/photo-1720874129553-1d2e66076b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+            alt="Dra. María José Duarte Barrio, psicóloga colegiada en Málaga"
+            class="w-full h-full object-cover"
+            width="480"
+            height="600"
+            loading="lazy"
+          /> -->
+          <Image
+            src={majofoto2}
+            alt="Dra. Maria Jose Duarte Barrio"
+            width={480}
+            height={600}
+          />
+        </div>
+        <div
+          class="absolute -bottom-8 -right-8 bg-teal-800 text-white p-6 rounded-2xl shadow-xl max-w-[200px] hidden md:block"
+        >
+          <p class="text-3xl font-serif font-medium mb-1">+10</p>
+          <p class="text-sm text-teal-100 leading-tight">
+            Años de experiencia clínica ayudando a personas
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6 reveal">
+        <div
+          class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase"
+        >
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+           Conóceme un poco más
+        </div>
+
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 leading-tight"
+        >
+          Hola, soy María José.<br />Tu psicóloga colegiada.
+        </h2>
+
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4">
+          <p>
+            Mi propósito es acompañarte en tu proceso de autoconocimiento y
+            sanación. Creo firmemente que la terapia es un espacio de <strong
+              >crecimiento personal</strong
+            > donde no tienes que fingir ser fuerte todo el tiempo.
+          </p>
+          <p>
+            Mi enfoque terapéutico integra herramientas de la <em
+              >Psicología Cognitivo-Conductual</em
+            > y terapias de Tercera Generación (ACT y Mindfulness), adaptándome
+            siempre a tus necesidades específicas y a tu ritmo.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-6">
+          <div class="bg-stone-50 p-5 rounded-2xl border border-stone-100">
+            <div class="text-2xl mb-3" aria-hidden="true">🏅</div>
+            <h3 class="font-semibold text-stone-900 mb-2">Formación</h3>
+            <p class="text-sm text-stone-600">
+              Licenciada en Psicología y Máster en Psicología Clínica y de la
+              Salud. Nº Colegiada M-00000.
+            </p>
+          </div>
+          <div class="bg-stone-50 p-5 rounded-2xl border border-stone-100">
+            <div class="text-2xl mb-3" aria-hidden="true">💚</div>
+            <h3 class="font-semibold text-stone-900 mb-2">Mi Enfoque</h3>
+            <p class="text-sm text-stone-600">
+              Práctico, cercano y centrado en dotarte de herramientas útiles
+              para tu día a día.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SERVICIOS
+  ============================== -->
+  <section id="servicios" class="py-24 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="flex items-center justify-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+        >
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+           Especialidades
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+        </div>
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 mb-6"
+        >
+          Cómo puedo ayudarte
+        </h2>
+        <p class="text-stone-600 text-lg">
+          Ofrezco un abordaje integral adaptado a tu situación y preferencias de
+          formato.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
+        {
+          SERVICES.map((service) => (
+            <article class="reveal group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
+              <div class="h-64 overflow-hidden relative">
+                <div
+                  class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"
+                  aria-hidden="true"
+                />
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  width="600"
+                  height="256"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-8 lg:p-10 relative">
+                <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+                  {service.title}
+                </h3>
+                <p class="text-stone-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                  {service.tags.map((tag) => (
+                    <span class="text-xs font-medium text-teal-800 bg-teal-50 px-3 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="/#contacto"
+                  class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors"
+                >
+                  Consultar disponibilidad
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Modalidades -->
+      <div
+        class="bg-teal-800 rounded-[2rem] p-8 md:p-12 text-white overflow-hidden relative"
+      >
+        <div
+          class="absolute right-0 top-0 w-64 h-64 bg-teal-700 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h3 class="text-3xl font-serif font-medium mb-6">
+              Modalidades de Terapia
+            </h3>
+            <p class="text-teal-50/90 mb-8 max-w-md text-lg">
+              La terapia se adapta a tu estilo de vida. Elige el formato que
+              mejor encaje contigo sin comprometer la calidad.
+            </p>
+            <a
+              href="/#contacto"
+              class="inline-flex bg-white text-teal-800 px-6 py-3 rounded-full font-medium hover:bg-teal-50 transition-colors"
+              >Agendar sesión</a
+            >
+          </div>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div
+              class="bg-teal-900/50 backdrop-blur-sm p-6 rounded-2xl border border-teal-700/50"
+            >
+              <div class="text-2xl mb-4" aria-hidden="true">🌐</div>
+              <h4 class="text-xl font-medium mb-2">Terapia Online</h4>
+              <p class="text-sm text-teal-100/80">
+                Sesiones por videollamada desde la comodidad de tu casa, estés
+                donde estés. 100% confidencial.
+              </p>
+            </div>
+            <div
+              class="bg-teal-900/50 backdrop-blur-sm p-6 rounded-2xl border border-teal-700/50"
+            >
+              <div class="text-2xl mb-4" aria-hidden="true">🏛️</div>
+              <h4 class="text-xl font-medium mb-2">Presencial</h4>
+              <p class="text-sm text-teal-100/80">
+                En nuestra consulta en el centro de Málaga. Un espacio acogedor,
+                seguro y tranquilo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CÓMO FUNCIONA
+  ============================== -->
+  <section id="como-funciona" class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 mb-6"
+        >
+          Cómo empezar
+        </h2>
+        <p class="text-stone-600 text-lg">
+          Dar el primer paso hacia la terapia puede generar dudas. Por eso, he
+          diseñado un proceso sencillo, transparente y acompañado desde el
+          primer momento.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div
+          class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-stone-100 z-0"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="grid md:grid-cols-3 gap-12 relative z-10">
+          {
+            STEPS.map((step) => (
+              <div class="reveal flex flex-col items-center text-center">
+                <div
+                  class="w-24 h-24 bg-teal-50 rounded-full flex items-center justify-center mb-6 shadow-sm border-8 border-white text-4xl"
+                  aria-hidden="true"
+                >
+                  {step.icon}
+                </div>
+                <h3 class="text-xl font-semibold text-stone-900 mb-4">
+                  {step.title}
+                </h3>
+                <p class="text-stone-600 leading-relaxed">{step.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="mt-20 flex flex-col items-center bg-stone-50 p-8 md:p-12 rounded-[2rem] border border-stone-100 max-w-4xl mx-auto text-center"
+      >
+        <div class="text-5xl mb-4" aria-hidden="true">✅</div>
+        <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          ¿Preparado/a para empezar?
+        </h3>
+        <p class="text-stone-600 mb-8 max-w-xl">
+          Recuerda que no estás solo/a en este proceso. Estoy aquí para
+          acompañarte paso a paso hacia una vida más plena y equilibrada.
+        </p>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu sesión informativa gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       TARIFAS
+  ============================== -->
+  <section id="tarifas" class="py-24 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="flex items-center justify-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+        >
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+           Inversión en ti
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+        </div>
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 mb-6"
+        >
+          Tarifas transparentes
+        </h2>
+        <p class="text-stone-600 text-lg">
+          Conoce los precios por sesión. No hay compromisos de permanencia. Las
+          citas canceladas con menos de 24h de antelación tendrán que ser
+          abonadas en su totalidad.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {
+          PRICING.map((plan) => (
+            <div
+              class={`reveal relative flex flex-col p-8 rounded-[2rem] border ${
+                plan.highlight
+                  ? "bg-teal-700 text-white border-teal-600 shadow-xl scale-105 z-10"
+                  : "bg-white text-stone-900 border-stone-100 shadow-sm"
+              }`}
+            >
+              {plan.highlight && (
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-100 text-teal-800 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  Más solicitada
+                </div>
+              )}
+              <div class="mb-8">
+                <h3
+                  class={`text-xl font-medium mb-4 ${
+                    plan.highlight ? "text-teal-50" : "text-stone-600"
+                  }`}
+                >
+                  {plan.title}
+                </h3>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-4xl font-serif font-medium">
+                    {plan.price}
+                  </span>
+                  <span
+                    class={`text-sm ${
+                      plan.highlight ? "text-teal-200" : "text-stone-500"
+                    }`}
+                  >
+                    / sesión
+                  </span>
+                </div>
+                <p
+                  class={`mt-2 text-sm ${
+                    plan.highlight ? "text-teal-100" : "text-stone-500"
+                  }`}
+                >
+                  Duración: {plan.duration}
+                </p>
+              </div>
+              <ul class="flex flex-col gap-4 mb-8 flex-1">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-3 text-sm">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      class={`shrink-0 ${
+                        plan.highlight ? "text-teal-300" : "text-teal-600"
+                      }`}
+                      aria-hidden="true"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    <span
+                      class={plan.highlight ? "text-teal-50" : "text-stone-600"}
+                    >
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/#contacto"
+                class={`w-full text-center py-4 rounded-full font-medium transition-all ${
+                  plan.highlight
+                    ? "bg-white text-teal-800 hover:bg-stone-50"
+                    : "bg-teal-50 text-teal-700 hover:bg-teal-100"
+                }`}
+              >
+                Reservar sesión
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-16 text-center">
+        <p class="text-sm text-stone-500 max-w-2xl mx-auto">
+          También ofrezco <strong>bonos de 4 sesiones</strong> con descuento
+          para procesos terapéuticos continuados. Consulta disponibilidad y
+          condiciones en la primera sesión informativa gratuita.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FAQ
+  ============================== -->
+  <section id="faq" class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div class="text-center mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6"
+        >
+          Preguntas frecuentes
+        </h2>
+        <p class="text-stone-600 text-lg">
+          Es normal tener dudas antes de empezar. Aquí respondo a las más
+          habituales.
+        </p>
+      </div>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+        {
+          FAQS.map((faq, idx) => (
+            <details
+              class="reveal border border-stone-200 rounded-2xl overflow-hidden bg-stone-50 group"
+              itemscope
+              itemprop="mainEntity"
+              itemtype="https://schema.org/Question"
+            >
+              <summary class="w-full px-6 py-5 text-left flex items-center justify-between cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-inset">
+                <span class="font-medium text-stone-900 pr-8" itemprop="name">
+                  {faq.question}
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  class="text-teal-600 transition-transform duration-300 group-open:rotate-180 shrink-0"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </summary>
+              <div
+                class="px-6 pb-5 text-stone-600 leading-relaxed border-t border-stone-100"
+                itemscope
+                itemprop="acceptedAnswer"
+                itemtype="https://schema.org/Answer"
+              >
+                <div itemprop="text">{faq.answer}</div>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CONTACTO
+  ============================== -->
+  <section
+    id="contacto"
+    class="py-24 bg-teal-900 text-stone-100 relative overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
+      style="background-image:url('https://images.unsplash.com/photo-1673219498641-e54db77132a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200')"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="container mx-auto px-4 md:px-6 max-w-6xl relative z-10 grid lg:grid-cols-2 gap-16 items-start"
+    >
+      <div class="reveal">
+        <div
+          class="flex items-center gap-3 text-teal-300 font-medium tracking-wide text-sm uppercase mb-6"
+        >
+          <span class="w-8 h-px bg-teal-400" aria-hidden="true"></span>
+           Contacto
+        </div>
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-white mb-6"
+        >
+          Demos el primer paso
+        </h2>
+        <p class="text-teal-100/80 text-lg mb-10 max-w-lg leading-relaxed">
+          Puedes escribirme un email, rellenar el formulario o enviarme un
+          WhatsApp. Te responderé lo antes posible para agendar tu sesión de
+          evaluación.
+        </p>
+
+        <div class="flex flex-col gap-6 mb-12">
+          <a
+            href="mailto:info@mariajoseduartebarriopsicologia.com"
+            class="flex items-center gap-4 group"
+          >
+            <div
+              class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center group-hover:bg-teal-700 transition-colors"
+              aria-hidden="true"
+            >
+              ✉️
+            </div>
+            <div>
+              <p class="text-sm text-teal-200/60 font-medium">Email</p>
+              <p class="text-white group-hover:text-teal-300 transition-colors">
+                info@mariajoseduartebarriopsicologia.com
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://wa.me/34600000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-4 group"
+          >
+            <div
+              class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors"
+              aria-hidden="true"
+            >
+              💬
+            </div>
+            <div>
+              <p class="text-sm text-teal-200/60 font-medium">
+                WhatsApp / Teléfono
+              </p>
+              <p
+                class="text-white group-hover:text-green-400 transition-colors"
+              >
+                +34 600 000 000
+              </p>
+            </div>
+          </a>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center"
+              aria-hidden="true"
+            >
+              📍
+            </div>
+            <div>
+              <p class="text-sm text-teal-200/60 font-medium">
+                Consulta Presencial
+              </p>
+              <p class="text-white">
+                Calle Salitre, Málaga (cerca del centro comercial Vialia)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div
+        class="reveal bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl relative text-stone-900"
+      >
+        <h3 class="text-2xl font-serif font-medium mb-6 text-stone-900">
+          Solicita tu sesión
+        </h3>
+        <form id="contact-form" class="space-y-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-stone-700 mb-2"
+                >Nombre completo</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+                placeholder="Tu nombre"
+              />
+            </div>
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-stone-700 mb-2"
+                >Teléfono</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                autocomplete="tel"
+                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+                placeholder="Tu teléfono"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-stone-700 mb-2">Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div>
+            <label
+              for="modality"
+              class="block text-sm font-medium text-stone-700 mb-2"
+              >Modalidad preferida</label
+            >
+            <select
+              id="modality"
+              name="modality"
+              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow appearance-none"
+            >
+              <option value="online">Terapia Online</option>
+              <option value="presencial">Terapia Presencial</option>
+              <option value="pareja_online">Terapia de Pareja Online</option>
+              <option value="pareja_presencial"
+                >Terapia de Pareja Presencial</option
+              >
+              <option value="duda">No lo sé aún / Tengo dudas</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium text-stone-700 mb-2"
+              >¿Cómo puedo ayudarte? (Opcional)</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow resize-none"
+              placeholder="Cuéntame brevemente tu motivo de consulta..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white py-4 rounded-xl font-medium transition-all shadow-lg shadow-teal-700/20 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            <span id="btn-text">Enviar mensaje</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"
+              ></path></svg
+            >
+          </button>
+          <p
+            id="form-success"
+            class="hidden text-center text-sm text-teal-700 font-medium bg-teal-50 px-4 py-3 rounded-xl"
+          >
+            ✅ Mensaje enviado. Te contactaré lo antes posible.
+          </p>
+          <p class="text-xs text-stone-400 text-center">
+            Tus datos serán tratados con estricta confidencialidad.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       BLOG PREVIEW
+  ============================== -->
+  <section class="py-24 bg-stone-50 border-t border-stone-200">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+      >
+        <div class="max-w-2xl">
+          <div
+            class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+          >
+            <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+             Blog y Recursos
+          </div>
+          <h2
+            class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6"
+          >
+            Artículos para tu bienestar
+          </h2>
+          <p class="text-stone-600 text-lg">
+            Reflexiones, herramientas prácticas y divulgación sobre psicología
+            basada en la evidencia científica.
+          </p>
+        </div>
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition-colors whitespace-nowrap"
+        >
+          Ver todos los artículos
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        {
+          RECENT_POSTS.map((post) => (
+            <article class="reveal group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 flex flex-col h-full">
+              <div class="h-64 overflow-hidden relative">
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-teal-800 z-10 uppercase tracking-wide">
+                  {post.category}
+                </span>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  width="600"
+                  height="256"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-8 lg:p-10 flex flex-col flex-1">
+                <div class="flex items-center gap-2 text-stone-500 text-sm mb-4">
+                  <time datetime={post.date}>{post.date}</time>
+                </div>
+                <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4 group-hover:text-teal-700 transition-colors">
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                </h3>
+                <p class="text-stone-600 mb-8 leading-relaxed flex-1">
+                  {post.excerpt}
+                </p>
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors mt-auto"
+                >
+                  Leer artículo completo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
+
+<script>
+  // Intersection Observer para animaciones de scroll
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          observer.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  // Formulario de contacto
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnText = document.getElementById("btn-text")!;
+  const successMsg = document.getElementById("form-success")!;
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btnText.textContent = "Enviando...";
+    await new Promise((r) => setTimeout(r, 1500));
+    form.reset();
+    btn.disabled = false;
+    btnText.textContent = "Enviar mensaje";
+    successMsg.classList.remove("hidden");
+    setTimeout(() => successMsg.classList.add("hidden"), 6000);
+  });
+</script>

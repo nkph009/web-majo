@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const POSTS = [
+  {
+    id: 1,
+    slug: "como-gestionar-la-ansiedad-en-el-trabajo",
+    title: "Cómo gestionar la ansiedad en el entorno laboral",
+    excerpt:
+      "Estrategias prácticas para manejar el estrés diario, establecer límites saludables y evitar el burnout profesional.",
+    image:
+      "https://images.unsplash.com/photo-1772408195534-8a080196dd51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    date: "2026-03-12",
+    dateDisplay: "12 Mar, 2026",
+    category: "Ansiedad",
+    author: "Dra. María José Duarte Barrio",
+    readTime: "5 min",
+  },
+  {
+    id: 2,
+    slug: "comunicacion-asertiva-en-pareja",
+    title: "El secreto de la comunicación asertiva en pareja",
+    excerpt:
+      "Aprende a expresar tus necesidades sin reproches y a escuchar a tu pareja desde la empatía y la conexión emocional.",
+    image:
+      "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    date: "2026-02-28",
+    dateDisplay: "28 Feb, 2026",
+    category: "Pareja",
+    author: "Dra. María José Duarte Barrio",
+    readTime: "6 min",
+  },
+  {
+    id: 3,
+    slug: "mindfulness-para-principiantes",
+    title: "Mindfulness para principiantes: 5 ejercicios diarios",
+    excerpt:
+      "Descubre cómo integrar la atención plena en tu rutina con estos sencillos ejercicios que solo te tomarán unos minutos al día.",
+    image:
+      "https://images.unsplash.com/photo-1673219498641-e54db77132a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    date: "2026-01-15",
+    dateDisplay: "15 Ene, 2026",
+    category: "Mindfulness",
+    author: "Dra. María José Duarte Barrio",
+    readTime: "4 min",
+  },
+];
+---
+
+<BaseLayout
+  title="Blog de Psicología · Recursos para tu bienestar"
+  description="Artículos, consejos y herramientas basados en la evidencia científica para cuidar tu salud mental en el día a día. Escrito por la Dra. María José Duarte Barrio, psicóloga colegiada."
+>
+  <div class="pt-32 pb-24 bg-stone-50 min-h-screen">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="flex items-center justify-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+        >
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+           Recursos y Reflexiones
+          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+        </div>
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-stone-900 mb-6 leading-tight"
+        >
+          Blog de Psicología
+        </h1>
+        <p class="text-stone-600 text-lg">
+          Artículos, consejos y herramientas basados en la evidencia para cuidar
+          tu salud mental en el día a día.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          POSTS.map((post, idx) => (
+            <article
+              class="reveal group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 flex flex-col h-full"
+              style={`transition-delay: ${idx * 80}ms`}
+              itemscope
+              itemtype="https://schema.org/BlogPosting"
+            >
+              <div class="h-56 overflow-hidden relative">
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-teal-800 z-10 uppercase tracking-wide">
+                  {post.category}
+                </span>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  width="400"
+                  height="224"
+                  loading="lazy"
+                  itemprop="image"
+                />
+              </div>
+              <div class="p-8 flex flex-col flex-1">
+                <div class="flex items-center gap-4 text-stone-500 text-sm mb-4">
+                  <time datetime={post.date} itemprop="datePublished">
+                    {post.dateDisplay}
+                  </time>
+                  <span>·</span>
+                  <span>{post.readTime} lectura</span>
+                </div>
+                <h2
+                  class="text-xl font-serif font-medium text-stone-900 mb-4 group-hover:text-teal-700 transition-colors"
+                  itemprop="headline"
+                >
+                  <a href={`/blog/${post.slug}`} itemprop="url">
+                    {post.title}
+                  </a>
+                </h2>
+                <p
+                  class="text-stone-600 mb-8 leading-relaxed flex-1 line-clamp-3"
+                  itemprop="description"
+                >
+                  {post.excerpt}
+                </p>
+                <div class="flex items-center justify-between mt-auto">
+                  <span
+                    class="text-sm text-stone-500"
+                    itemprop="author"
+                    itemscope
+                    itemtype="https://schema.org/Person"
+                  >
+                    <span itemprop="name">{post.author}</span>
+                  </span>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors text-sm"
+                  >
+                    Leer
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          observer.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
