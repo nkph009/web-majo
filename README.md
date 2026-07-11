@@ -1,4 +1,4 @@
-# María José Duarte Barrio · Psicología Sanitaria — Proyecto Astro
+# Maria José Duarte Barrio · Psicología Sanitaria — Proyecto Astro
 
 Web migrada de React + Vite a **Astro** para mejorar el rendimiento y el SEO.
 
