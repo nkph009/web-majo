@@ -1,0 +1,26 @@
+# Dependencias (¡Nunca se suben!)
+node_modules/
+
+# Carpetas de construcción / salida de producción
+dist/
+.astro/
+
+# Logs de errores comunes
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de entorno y secretos (Contienen contraseñas o API Keys)
+.env
+.env.production
+.env.local
+.env.*.local
+
+# Archivos temporales y de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Caché de herramientas de desarrollo (Vite, TypeScript, etc.)
+.vite/
+.turbo/
