@@ -11,16 +11,16 @@ const SERVICES = [
       "Un espacio para ti donde abordaremos ansiedad, depresión, autoestima, gestión emocional o crisis vitales.",
     image:
       "https://images.unsplash.com/photo-1703449481095-bb99a6928f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-    tags: ["Ansiedad", "Depresión", "Crecimiento personal"],
+    tags: [],
     icon: "user",
   },
   {
-    title: "Terapia Sensorio Motriz",
+    title: "Terapia Sensoriomotriz",
     description:
-      "Enfoque terapéutico que combina el procesamiento verbal con la conciencia corporal, trabajando directamente con las sensaciones físicas para sanar traumas y tensiones emocionales.",
+      "Es un modelo de psicoterapia que utiliza el cuerpo como herramienta principal para procesar traumas, heridas de apego y problemas de regulación emocional.",
     image:
       "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-    tags: ["Conflictos", "Comunicación", "Infidelidad"],
+    tags: [],
     icon: "users",
   },
 ];
@@ -28,8 +28,8 @@ const SERVICES = [
 const PRICING = [
   {
     title: "Terapia Individual Online",
-    price: "60€",
-    duration: "55 min",
+    price: "65€",
+    duration: "50 min",
     features: [
       "Sesión por videollamada segura",
       "Flexibilidad horaria",
@@ -38,18 +38,18 @@ const PRICING = [
     ],
     highlight: true,
   },
-  {
-    title: "Terapia Individual Presencial",
-    price: "70€",
-    duration: "55 min",
-    features: [
-      "Consulta en Málaga Centro",
-      "Entorno seguro y acogedor",
-      "Material de apoyo impreso",
-      "Parking cercano disponible",
-    ],
-    highlight: false,
-  },
+  // {
+  //   title: "Terapia Individual Presencial",
+  //   price: "70€",
+  //   duration: "55 min",
+  //   features: [
+  //     "Consulta en Málaga Centro",
+  //     "Entorno seguro y acogedor",
+  //     "Material de apoyo impreso",
+  //     "Parking cercano disponible",
+  //   ],
+  //   highlight: false,
+  // },
   // {
   //   title: "Terapia de Pareja",
   //   price: "85€",
@@ -146,7 +146,7 @@ const RECENT_POSTS = [
   ============================== -->
   <section
     id="inicio"
-    class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-stone-50"
+    class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-amber-50"
   >
     <div
       class="absolute inset-0 z-0 opacity-10 pointer-events-none"
@@ -155,7 +155,7 @@ const RECENT_POSTS = [
       <svg
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
-        class="w-full h-full text-teal-800 fill-current"
+        class="w-full h-full text-amber-600 fill-current"
       >
         <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
       </svg>
@@ -165,11 +165,11 @@ const RECENT_POSTS = [
       class="container mx-auto px-4 md:px-6 max-w-6xl z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center"
     >
       <div class="flex flex-col gap-6 fade-in-up">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-sm font-medium w-fit"
+        <!-- <div
+          class="inline-flex items-center gap-2 px-5 py-1 rounded-full bg-rose-300 border border-indigo-100 text-white text-sm font-medium w-fit"
         >
-          ✨ <span>Terapia Online y Presencial</span>
-        </div>
+          ✨ <span>Online y Presencial</span>
+        </div> -->
 
         <h1
           class="text-4xl md:text-5xl lg:text-5xl font-serif font-medium text-stone-900 leading-tight"
@@ -186,7 +186,7 @@ const RECENT_POSTS = [
         <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <a
             href="/#contacto"
-            class="inline-flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/40 hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/40 hover:-translate-y-0.5"
           >
             Reserva tu primera sesión
             <svg
@@ -203,14 +203,14 @@ const RECENT_POSTS = [
           </a>
           <a
             href="/#como-funciona"
-            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-700 border border-stone-200 px-8 py-4 rounded-full font-medium transition-all"
+            class="inline-flex items-center justify-center gap-2 bg-stone-50 hover:bg-stone-50 text-stone-700 border border-stone-200 px-8 py-4 rounded-full font-medium transition-all"
           >
             Saber más
           </a>
         </div>
 
         <div
-          class="flex items-center gap-6 mt-8 pt-6 border-t border-stone-200"
+          class="flex items-center gap-6 mt-8 pt-6 border-t border-rose-200"
         >
           <div class="flex items-center gap-2">
             <svg
@@ -220,7 +220,7 @@ const RECENT_POSTS = [
               fill="none"
               stroke="currentColor"
               stroke-width="1.5"
-              class="text-teal-600"
+              class="text-rose-400"
               viewBox="0 0 24 24"
               aria-hidden="true"
               ><path d="m22 8-6 4 6 4V8Z"></path><rect
@@ -235,7 +235,7 @@ const RECENT_POSTS = [
               >Sesiones Online</span
             >
           </div>
-          <div class="flex items-center gap-2">
+          <!-- <div class="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -252,7 +252,7 @@ const RECENT_POSTS = [
             <span class="text-sm font-medium text-stone-600"
               >Centro de Málaga</span
             >
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -261,7 +261,7 @@ const RECENT_POSTS = [
         style="animation-delay:.2s"
       >
         <div
-          class="absolute inset-0 bg-teal-100 rounded-[3rem] rotate-3 scale-95 opacity-50"
+          class="absolute inset-0 bg-rose-200 rounded-[3rem] rotate-3 scale-95 opacity-50"
           aria-hidden="true"
         >
         </div>
@@ -286,7 +286,7 @@ const RECENT_POSTS = [
             class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center gap-4"
           >
             <div
-              class="bg-teal-100 p-3 rounded-full text-teal-700"
+              class="bg-rose-100 p-3 rounded-full text-teal-700"
               aria-hidden="true"
             >
               🛡️
@@ -306,7 +306,7 @@ const RECENT_POSTS = [
   <!-- ==============================
        SOBRE MÍ
   ============================== -->
-  <section id="sobre-mi" class="py-24 bg-white relative overflow-hidden">
+  <section id="sobre-mi" class="py-24 bg-amber-50 relative overflow-hidden">
     <div
       class="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50 rounded-bl-[10rem] -z-10 opacity-60"
       aria-hidden="true"
@@ -336,10 +336,10 @@ const RECENT_POSTS = [
           />
         </div>
         <div
-          class="absolute -bottom-8 -right-8 bg-teal-800 text-white p-6 rounded-2xl shadow-xl max-w-[200px] hidden md:block"
+          class="absolute -bottom-8 -right-8 bg-rose-300 text-white p-6 rounded-2xl shadow-xl max-w-[200px] hidden md:block"
         >
           <p class="text-3xl font-serif font-medium mb-1">+5</p>
-          <p class="text-sm text-teal-100 leading-tight">
+          <p class="text-sm leading-tight">
             Años de experiencia sanitaria ayudando a personas
           </p>
         </div>
@@ -347,11 +347,11 @@ const RECENT_POSTS = [
 
       <div class="flex flex-col gap-6 reveal">
         <div
-          class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase"
+          class="flex items-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase"
         >
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
            Conóceme un poco más
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
         </div>
 
         <h3
@@ -402,15 +402,15 @@ const RECENT_POSTS = [
   <!-- ==============================
        SERVICIOS
   ============================== -->
-  <section id="servicios" class="py-24 bg-stone-50">
+  <section id="servicios" class="py-24 bg-[#fbeed4]">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <div
-          class="flex items-center justify-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+          class="flex items-center justify-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
         >
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
            Especialidades
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
         </div>
         <h2
           class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 mb-6"
@@ -426,7 +426,7 @@ const RECENT_POSTS = [
       <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
         {
           SERVICES.map((service) => (
-            <article class="reveal group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
+            <article class="reveal group bg-stone-50 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
               <div class="h-64 overflow-hidden relative">
                 <div
                   class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"
@@ -457,7 +457,7 @@ const RECENT_POSTS = [
                 </div>
                 <a
                   href="/#contacto"
-                  class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors"
+                  class="inline-flex items-center gap-2 text-blue-400 font-medium hover:text-blue-600 transition-colors"
                 >
                   Consultar disponibilidad
                   <svg
@@ -483,15 +483,15 @@ const RECENT_POSTS = [
       </div>
 
       <!-- Modalidades -->
-      <div
+      <!-- <div
         class="bg-teal-800 rounded-[2rem] p-8 md:p-12 text-white overflow-hidden relative"
       >
         <div
           class="absolute right-0 top-0 w-64 h-64 bg-teal-700 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"
           aria-hidden="true"
         >
-        </div>
-        <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+        </div> -->
+        <!-- <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h3 class="text-3xl font-serif font-medium mb-6">
               Modalidades de Terapia
@@ -528,7 +528,7 @@ const RECENT_POSTS = [
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -536,7 +536,7 @@ const RECENT_POSTS = [
   <!-- ==============================
        CÓMO FUNCIONA
   ============================== -->
-  <section id="como-funciona" class="py-24 bg-white">
+  <section id="como-funciona" class="py-24 bg-amber-50">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <h2
@@ -553,7 +553,7 @@ const RECENT_POSTS = [
 
       <div class="relative">
         <div
-          class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-stone-100 z-0"
+          class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-rose-400 z-0"
           aria-hidden="true"
         >
         </div>
@@ -562,7 +562,7 @@ const RECENT_POSTS = [
             STEPS.map((step) => (
               <div class="reveal flex flex-col items-center text-center">
                 <div
-                  class="w-24 h-24 bg-teal-50 rounded-full flex items-center justify-center mb-6 shadow-sm border-8 border-white text-4xl"
+                  class="w-24 h-24 bg-stone-50 rounded-full flex items-center justify-center mb-6 shadow-sm border-2 border-rose-400 text-4xl"
                   aria-hidden="true"
                 >
                   {step.icon}
@@ -578,11 +578,11 @@ const RECENT_POSTS = [
       </div>
 
       <div
-        class="mt-20 flex flex-col items-center bg-stone-50 p-8 md:p-12 rounded-[2rem] border border-stone-100 max-w-4xl mx-auto text-center"
+        class="mt-20 flex flex-col items-center bg-stone-50 p-8 md:p-12 rounded-[2rem] border border-rose-400 max-w-4xl mx-auto text-center"
       >
-        <div class="text-5xl mb-4" aria-hidden="true">✅</div>
+        <!-- <div class="text-5xl mb-4" aria-hidden="true">✨</div> -->
         <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">
-          ¿Preparado/a para empezar?
+          ✨ ¿Preparado/a para empezar? ✨
         </h3>
         <p class="text-stone-600 mb-8 max-w-xl">
           Recuerda que no estás solo/a en este proceso. Estoy aquí para
@@ -590,7 +590,7 @@ const RECENT_POSTS = [
         </p>
         <a
           href="/#contacto"
-          class="inline-flex items-center justify-center bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-full font-medium transition-all"
+          class="inline-flex items-center justify-center bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
         >
           Reserva tu sesión informativa gratuita
         </a>
@@ -601,74 +601,72 @@ const RECENT_POSTS = [
   <!-- ==============================
        TARIFAS
   ============================== -->
-  <section id="tarifas" class="py-24 bg-stone-50">
+  <section id="tarifas" class="py-24 bg-[#fbeed4]">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <div
-          class="flex items-center justify-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+          class="flex items-center justify-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
         >
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
            Inversión en ti
-          <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
         </div>
         <h2
           class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-stone-900 mb-6"
         >
-          Tarifas transparentes
+          Tarifa transparente
         </h2>
         <p class="text-stone-600 text-lg">
-          Conoce los precios por sesión. No hay compromisos de permanencia. Las
-          citas canceladas con menos de 24h de antelación tendrán que ser
-          abonadas en su totalidad.
+          Conoce el precio por sesión. No hay compromisos de permanencia.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-1 gap-8 max-w-5xl mx-auto">
         {
           PRICING.map((plan) => (
             <div
               class={`reveal relative flex flex-col p-8 rounded-[2rem] border ${
                 plan.highlight
-                  ? "bg-teal-700 text-white border-teal-600 shadow-xl scale-105 z-10"
+                  ? "bg-stone-50 border-rose-400 shadow-xl scale-105 z-10"
                   : "bg-white text-stone-900 border-stone-100 shadow-sm"
               }`}
             >
               {plan.highlight && (
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-100 text-teal-800 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                  Más solicitada
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-rose-100 text-rose-400 text-xs border border-rose-400 font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  La mejor opción
                 </div>
               )}
-              <div class="mb-8">
+              <div class="text-center">
                 <h3
-                  class={`text-xl font-medium mb-4 ${
-                    plan.highlight ? "text-teal-50" : "text-stone-600"
+                  class={`text-xl font-serif font-medium mb-4 ${
+                    plan.highlight ? "text-black" : "text-stone-600"
                   }`}
                 >
                   {plan.title}
                 </h3>
-                <div class="flex items-baseline gap-2">
+                <div class="w-full font-serif text-center items-baseline gap-8">
                   <span class="text-4xl font-serif font-medium">
                     {plan.price}
                   </span>
                   <span
-                    class={`text-sm ${
-                      plan.highlight ? "text-teal-200" : "text-stone-500"
+                    class={`text-sm font-serif ${
+                      plan.highlight ? "text-black" : "text-stone-500"
                     }`}
                   >
                     / sesión
                   </span>
                 </div>
                 <p
-                  class={`mt-2 text-sm ${
-                    plan.highlight ? "text-teal-100" : "text-stone-500"
+                  class={`mt-2 text-sm font-serif ${
+                    plan.highlight ? "text-black" : "text-stone-500"
                   }`}
                 >
                   Duración: {plan.duration}
-                </p>
+                </p><br>
               </div>
-              <ul class="flex flex-col gap-4 mb-8 flex-1">
+              <ul class="font-serif flex flex-col gap-4 mb-8 flex-1 items-center">
                 {plan.features.map((feature) => (
-                  <li class="flex items-start gap-3 text-sm">
+                  <li class="flex items-start gap-3 text-sm justify-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -678,14 +676,14 @@ const RECENT_POSTS = [
                       stroke-width="2"
                       viewBox="0 0 24 24"
                       class={`shrink-0 ${
-                        plan.highlight ? "text-teal-300" : "text-teal-600"
+                        plan.highlight ? "text-rose-400" : "text-teal-600"
                       }`}
                       aria-hidden="true"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
                     <span
-                      class={plan.highlight ? "text-teal-50" : "text-stone-600"}
+                      class={plan.highlight ? "text-black" : "text-stone-600"}
                     >
                       {feature}
                     </span>
@@ -696,7 +694,7 @@ const RECENT_POSTS = [
                 href="/#contacto"
                 class={`w-full text-center py-4 rounded-full font-medium transition-all ${
                   plan.highlight
-                    ? "bg-white text-teal-800 hover:bg-stone-50"
+                    ? "bg-rose-300 text-white hover:bg-rose-400"
                     : "bg-teal-50 text-teal-700 hover:bg-teal-100"
                 }`}
               >
@@ -720,7 +718,7 @@ const RECENT_POSTS = [
   <!-- ==============================
        FAQ
   ============================== -->
-  <section id="faq" class="py-24 bg-white">
+  <section id="faq" class="py-24 bg-amber-50">
     <div class="container mx-auto px-4 md:px-6 max-w-4xl">
       <div class="text-center mb-16">
         <h2
@@ -738,7 +736,7 @@ const RECENT_POSTS = [
         {
           FAQS.map((faq, idx) => (
             <details
-              class="reveal border border-stone-200 rounded-2xl overflow-hidden bg-stone-50 group"
+              class="reveal border border-rose-300 rounded-2xl overflow-hidden bg-stone-50 group"
               itemscope
               itemprop="mainEntity"
               itemtype="https://schema.org/Question"
@@ -755,7 +753,7 @@ const RECENT_POSTS = [
                   stroke="currentColor"
                   stroke-width="2"
                   viewBox="0 0 24 24"
-                  class="text-teal-600 transition-transform duration-300 group-open:rotate-180 shrink-0"
+                  class="text-rose-400 transition-transform duration-300 group-open:rotate-180 shrink-0"
                   aria-hidden="true"
                 >
                   <path d="m6 9 6 6 6-6" />
@@ -781,7 +779,7 @@ const RECENT_POSTS = [
   ============================== -->
   <section
     id="contacto"
-    class="py-24 bg-teal-900 text-stone-100 relative overflow-hidden"
+    class="py-24 bg-[#fbeed4] text-stone-900 relative overflow-hidden"
   >
     <div
       class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
@@ -795,17 +793,18 @@ const RECENT_POSTS = [
     >
       <div class="reveal">
         <div
-          class="flex items-center gap-3 text-teal-300 font-medium tracking-wide text-sm uppercase mb-6"
+          class="flex items-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-6"
         >
-          <span class="w-8 h-px bg-teal-400" aria-hidden="true"></span>
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
            Contacto
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
         </div>
         <h2
-          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-white mb-6"
+          class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium mb-6"
         >
           Demos el primer paso
         </h2>
-        <p class="text-teal-100/80 text-lg mb-10 max-w-lg leading-relaxed">
+        <p class="text-lg mb-10 max-w-lg leading-relaxed">
           Puedes escribirme un email, rellenar el formulario o enviarme un
           WhatsApp. Te responderé lo antes posible para agendar tu sesión de
           evaluación.
@@ -817,14 +816,14 @@ const RECENT_POSTS = [
             class="flex items-center gap-4 group"
           >
             <div
-              class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center group-hover:bg-teal-700 transition-colors"
+              class="w-12 h-12 bg-stone-50 border border-rose-400 rounded-full flex items-center justify-center group-hover:bg-stone-100 transition-colors"
               aria-hidden="true"
             >
-              ✉️
+              🖂
             </div>
             <div>
-              <p class="text-sm text-teal-200/60 font-medium">Email</p>
-              <p class="text-white group-hover:text-teal-300 transition-colors">
+              <p class="text-sm font-medium">Email</p>
+              <p class="text-stone-600 group-hover:text-indigo-400 transition-colors">
                 info@mariajoseduartebarriopsicologia.com
               </p>
             </div>
@@ -836,23 +835,23 @@ const RECENT_POSTS = [
             class="flex items-center gap-4 group"
           >
             <div
-              class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors"
+              class="w-12 h-12 bg-stone-50 border border-rose-400 rounded-full flex items-center justify-center group-hover:bg-stone-100 transition-colors"
               aria-hidden="true"
             >
               💬
             </div>
             <div>
-              <p class="text-sm text-teal-200/60 font-medium">
-                WhatsApp / Teléfono
+              <p class="text-sm font-medium">
+                WhatsApp
               </p>
               <p
-                class="text-white group-hover:text-green-400 transition-colors"
+                class="text-stone-600 group-hover:text-green-400 transition-colors"
               >
                 +34 600 000 000
               </p>
             </div>
           </a>
-          <div class="flex items-center gap-4">
+          <!-- <div class="flex items-center gap-4">
             <div
               class="w-12 h-12 bg-teal-800 rounded-full flex items-center justify-center"
               aria-hidden="true"
@@ -867,13 +866,13 @@ const RECENT_POSTS = [
                 Calle Salitre, Málaga (cerca del centro comercial Vialia)
               </p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
       <!-- Formulario -->
       <div
-        class="reveal bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl relative text-stone-900"
+        class="reveal bg-stone-50 rounded-[2rem] p-8 md:p-10 shadow-2xl relative text-stone-900"
       >
         <h3 class="text-2xl font-serif font-medium mb-6 text-stone-900">
           Solicita tu sesión
@@ -892,7 +891,7 @@ const RECENT_POSTS = [
                 name="name"
                 required
                 autocomplete="name"
-                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+                class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
                 placeholder="Tu nombre"
               />
             </div>
@@ -908,7 +907,7 @@ const RECENT_POSTS = [
                 name="phone"
                 required
                 autocomplete="tel"
-                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+                class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
                 placeholder="Tu teléfono"
               />
             </div>
@@ -925,7 +924,7 @@ const RECENT_POSTS = [
               name="email"
               required
               autocomplete="email"
-              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
+              class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow"
               placeholder="tu@email.com"
             />
           </div>
@@ -939,7 +938,7 @@ const RECENT_POSTS = [
             <select
               id="modality"
               name="modality"
-              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow appearance-none"
+              class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow appearance-none"
             >
               <option value="online">Terapia Online</option>
               <option value="presencial">Terapia Presencial</option>
@@ -961,7 +960,7 @@ const RECENT_POSTS = [
               id="message"
               name="message"
               rows="4"
-              class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow resize-none"
+              class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow resize-none"
               placeholder="Cuéntame brevemente tu motivo de consulta..."
             ></textarea>
           </div>
@@ -969,7 +968,7 @@ const RECENT_POSTS = [
           <button
             type="submit"
             id="submit-btn"
-            class="w-full flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-800 text-white py-4 rounded-xl font-medium transition-all shadow-lg shadow-teal-700/20 disabled:opacity-70 disabled:cursor-not-allowed"
+            class="w-full flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white py-4 rounded-xl font-medium transition-all shadow-lg shadow-teal-700/20 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             <span id="btn-text">Enviar mensaje</span>
             <svg
@@ -1002,17 +1001,18 @@ const RECENT_POSTS = [
   <!-- ==============================
        BLOG PREVIEW
   ============================== -->
-  <section class="py-24 bg-stone-50 border-t border-stone-200">
+  <section class="py-24 bg-amber-50 border-t border-stone-200">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div
         class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
       >
         <div class="max-w-2xl">
           <div
-            class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4"
+            class="flex items-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
           >
-            <span class="w-8 h-px bg-teal-300" aria-hidden="true"></span>
+            <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
              Blog y Recursos
+            <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
           </div>
           <h2
             class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6"
@@ -1026,7 +1026,7 @@ const RECENT_POSTS = [
         </div>
         <a
           href="/blog"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition-colors whitespace-nowrap"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-300 text-white hover:bg-rose-400 hover:text-white transition-colors whitespace-nowrap"
         >
           Ver todos los artículos
           <svg
@@ -1046,9 +1046,9 @@ const RECENT_POSTS = [
       <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
         {
           RECENT_POSTS.map((post) => (
-            <article class="reveal group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 flex flex-col h-full">
+            <article class="reveal group bg-stone-50 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 flex flex-col h-full">
               <div class="h-64 overflow-hidden relative">
-                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-teal-800 z-10 uppercase tracking-wide">
+                <span class="absolute top-4 left-4 bg-stone-50 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-stone-900 z-10 uppercase tracking-wide">
                   {post.category}
                 </span>
                 <img
@@ -1064,7 +1064,7 @@ const RECENT_POSTS = [
                 <div class="flex items-center gap-2 text-stone-500 text-sm mb-4">
                   <time datetime={post.date}>{post.date}</time>
                 </div>
-                <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4 group-hover:text-teal-700 transition-colors">
+                <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4 group-hover:text-indigo-500 transition-colors">
                   <a href={`/blog/${post.slug}`}>{post.title}</a>
                 </h3>
                 <p class="text-stone-600 mb-8 leading-relaxed flex-1">
@@ -1072,7 +1072,7 @@ const RECENT_POSTS = [
                 </p>
                 <a
                   href={`/blog/${post.slug}`}
-                  class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors mt-auto"
+                  class="inline-flex items-center gap-2 text-rose-400 font-medium hover:text-rose-500 transition-colors mt-auto"
                 >
                   Leer artículo completo
                   <svg
