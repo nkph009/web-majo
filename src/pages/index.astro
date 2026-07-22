@@ -38,18 +38,17 @@ const PRICING = [
     ],
     highlight: true,
   },
-  // {
-  //   title: "Terapia Individual Presencial",
-  //   price: "70€",
-  //   duration: "55 min",
-  //   features: [
-  //     "Consulta en Málaga Centro",
-  //     "Entorno seguro y acogedor",
-  //     "Material de apoyo impreso",
-  //     "Parking cercano disponible",
-  //   ],
-  //   highlight: false,
-  // },
+  {
+    title: "Terapia Sensoriomotriz",
+    price: "65€",
+    duration: "50 min",
+    features: [
+      "Modelo para procesar traumas",
+      "Entorno seguro y acogedor",
+      "Seguimiento por email y whatsapp",
+    ],
+    highlight: false,
+  },
   // {
   //   title: "Terapia de Pareja",
   //   price: "85€",
@@ -183,6 +182,41 @@ const RECENT_POSTS = [
           dejan en el cuerpo para ayudarte a comprender el origen de tu malestar y recuperar el equilibrio.
         </p>
 
+        <!-- Foto (solo mobile): entre el texto y los botones -->
+        <div class="lg:hidden relative flex items-center justify-center fade-in-up">
+          <div
+            class="absolute inset-0 bg-rose-200 rounded-[3rem] rotate-3 scale-95 opacity-50"
+            aria-hidden="true"
+          >
+          </div>
+          <div
+            class="relative w-full max-w-md mx-auto aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white"
+          >
+            <Image
+              src={majofoto}
+              alt="Maria Jose Duarte Barrio"
+              width={480}
+              height={600}
+            />
+            <div
+              class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center gap-4"
+            >
+              <div
+                class="bg-rose-100 p-3 rounded-full text-teal-700"
+                aria-hidden="true"
+              >
+                🛡️
+              </div>
+              <div>
+                <p class="font-semibold text-stone-900">Espacio Seguro</p>
+                <p class="text-xs text-stone-600">
+                  100% confidencial y sin juicios
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <a
             href="/#contacto"
@@ -257,7 +291,7 @@ const RECENT_POSTS = [
       </div>
 
       <div
-        class="relative lg:h-[600px] flex items-center justify-center fade-in-up"
+        class="relative hidden lg:flex lg:h-[600px] items-center justify-center fade-in-up"
         style="animation-delay:.2s"
       >
         <div
@@ -316,7 +350,7 @@ const RECENT_POSTS = [
     <div
       class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-center"
     >
-      <div class="reveal">
+      <div class="reveal order-2 lg:order-none">
         <div
           class="aspect-[4/5] max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl"
         >
@@ -345,7 +379,7 @@ const RECENT_POSTS = [
         </div>
       </div>
 
-      <div class="flex flex-col gap-6 reveal">
+      <div class="flex flex-col gap-6 reveal order-1 lg:order-none">
         <div
           class="flex items-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase"
         >
@@ -703,14 +737,6 @@ const RECENT_POSTS = [
             </div>
           ))
         }
-      </div>
-
-      <div class="mt-16 text-center">
-        <p class="text-sm text-stone-500 max-w-2xl mx-auto">
-          También ofrezco <strong>bonos de 4 sesiones</strong> con descuento
-          para procesos terapéuticos continuados. Consulta disponibilidad y
-          condiciones en la primera sesión informativa gratuita.
-        </p>
       </div>
     </div>
   </section>
