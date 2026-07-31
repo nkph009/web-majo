@@ -659,11 +659,7 @@ const RECENT_POSTS = [
         {
           PRICING.map((plan) => (
             <div
-              class={`reveal relative flex flex-col p-8 rounded-[2rem] border ${
-                plan.highlight
-                  ? "bg-stone-50 border-rose-400 shadow-xl scale-105 z-10"
-                  : "bg-white text-stone-900 border-stone-100 shadow-sm"
-              }`}
+              class="reveal relative flex flex-col p-8 rounded-[2rem] border bg-stone-50 border-rose-400 shadow-xl scale-105 z-10"
             >
               {plan.highlight && (
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-rose-100 text-rose-400 text-xs border border-rose-400 font-bold px-4 py-1 rounded-full uppercase tracking-wider">
@@ -672,9 +668,7 @@ const RECENT_POSTS = [
               )}
               <div class="text-center">
                 <h3
-                  class={`text-xl font-serif font-medium mb-4 ${
-                    plan.highlight ? "text-black" : "text-stone-600"
-                  }`}
+                  class="text-xl font-serif font-medium mb-4 text-black"
                 >
                   {plan.title}
                 </h3>
@@ -683,17 +677,13 @@ const RECENT_POSTS = [
                     {plan.price}
                   </span>
                   <span
-                    class={`text-sm font-serif ${
-                      plan.highlight ? "text-black" : "text-stone-500"
-                    }`}
+                    class="text-sm font-serif text-black"
                   >
                     / sesión
                   </span>
                 </div>
                 <p
-                  class={`mt-2 text-sm font-serif ${
-                    plan.highlight ? "text-black" : "text-stone-500"
-                  }`}
+                  class="mt-2 text-sm font-serif text-black"
                 >
                   Duración: {plan.duration}
                 </p><br>
@@ -709,15 +699,13 @@ const RECENT_POSTS = [
                       stroke="currentColor"
                       stroke-width="2"
                       viewBox="0 0 24 24"
-                      class={`shrink-0 ${
-                        plan.highlight ? "text-rose-400" : "text-teal-600"
-                      }`}
+                      class="shrink-0 text-rose-400"
                       aria-hidden="true"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
                     <span
-                      class={plan.highlight ? "text-black" : "text-stone-600"}
+                      class="text-black"
                     >
                       {feature}
                     </span>
@@ -726,11 +714,7 @@ const RECENT_POSTS = [
               </ul>
               <a
                 href="/#contacto"
-                class={`w-full text-center py-4 rounded-full font-medium transition-all ${
-                  plan.highlight
-                    ? "bg-rose-300 text-white hover:bg-rose-400"
-                    : "bg-teal-50 text-teal-700 hover:bg-teal-100"
-                }`}
+                class="w-full text-center py-4 rounded-full font-medium transition-all bg-rose-300 text-white hover:bg-rose-400"
               >
                 Reservar sesión
               </a>
@@ -966,12 +950,8 @@ const RECENT_POSTS = [
               name="modality"
               class="w-full px-4 py-3 bg-stone-100 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-shadow appearance-none"
             >
-              <option value="online">Terapia Online</option>
-              <option value="presencial">Terapia Presencial</option>
-              <option value="pareja_online">Terapia de Pareja Online</option>
-              <option value="pareja_presencial"
-                >Terapia de Pareja Presencial</option
-              >
+              <option value="individual">Terapia Individual</option>
+              <option value="sensoriomotriz">Terapia Sensoriomotriz</option>
               <option value="duda">No lo sé aún / Tengo dudas</option>
             </select>
           </div>
