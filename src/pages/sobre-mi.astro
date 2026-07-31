@@ -1,0 +1,343 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import majofoto from "../assets/images/majo1.jpeg";
+import majofoto2 from "../assets/images/majo3.jpeg";
+
+const FORMACION = [
+  {
+    year: "2018",
+    title: "Grado en Psicología",
+    // ✏️ Cambia la universidad si no es esta
+    place: "Universidad",
+  },
+  {
+    year: "2020",
+    title: "Máster en Psicología General Sanitaria",
+    place: "UNIR",
+  },
+  {
+    year: "2021 — hoy",
+    title: "Formación en Terapia Sensoriomotriz",
+    // ✏️ Añade aquí el instituto/entidad concreta y el nivel (I, II, III...) si lo tienes
+    place: "Formación especializada en trauma y trabajo con el cuerpo",
+  },
+  // ✏️ Añade aquí más cursos, congresos, supervisiones o certificaciones
+  // {
+  //   year: "2023",
+  //   title: "Curso de especialización en apego adulto",
+  //   place: "Entidad formativa",
+  // },
+];
+
+const VALORES = [
+  {
+    icon: "🔒",
+    title: "Confidencialidad",
+    description:
+      "Todo lo que compartes en sesión queda dentro de la sesión. Es un espacio seguro, sin juicios.",
+  },
+  {
+    icon: "🕊️",
+    title: "Tu ritmo",
+    description:
+      "No hay prisa ni un camino único. Adapto el proceso a tus tiempos y necesidades, no al revés.",
+  },
+  {
+    icon: "🔬",
+    title: "Basado en evidencia",
+    description:
+      "Combino modelos con respaldo científico (terapia sensoriomotriz, enfoque integrador) con calidez humana.",
+  },
+  {
+    icon: "🤝",
+    title: "Cercanía real",
+    description:
+      "Nada de tecnicismos ni distancia clínica innecesaria. Hablamos como personas, no como paciente y experta.",
+  },
+];
+---
+
+<BaseLayout
+  title="Sobre mí"
+  description="Conoce a Maria José Duarte Barrio (Majo), psicóloga colegiada (Nº AO13522) especializada en trauma, apego y terapia Sensoriomotriz. Sesiones online."
+  canonical="https://mariajoseduartebarriopsicologia.com/sobre-mi"
+>
+  <!-- ==============================
+       INTRO
+  ============================== -->
+  <section class="pt-10 pb-20 md:pb-24 bg-amber-50 relative overflow-hidden">
+    <div
+      class="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50 rounded-bl-[10rem] -z-10 opacity-60"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-center"
+    >
+      <div class="flex flex-col gap-6 reveal order-1 lg:order-none">
+        <div
+          class="flex items-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase"
+        >
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+           Sobre mí
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-serif font-medium text-stone-900 leading-tight"
+        >
+          Soy Majo, psicóloga sanitaria, y me alegra que estés aquí.
+        </h1>
+
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4">
+          <p>
+            Mi propósito es acompañarte en tu proceso de autoconocimiento y
+            sanación. Creo firmemente que la terapia es un espacio de
+            <strong>crecimiento personal</strong> donde no tienes que fingir
+            ser fuerte todo el tiempo.
+          </p>
+          <p>
+            Estoy especializada en <strong>trauma</strong> y
+            <strong>acompañamiento emocional</strong>. Mi forma de trabajar
+            parte de una idea muy importante: las experiencias difíciles que
+            hemos vivido no solo se guardan en la mente, también dejan huella
+            en el cuerpo y en las emociones.
+          </p>
+          <!-- ✏️ Añade aquí 1-2 párrafos más: por qué te hiciste psicóloga,
+               algo personal que humanice la página, o a quién sueles ayudar más -->
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-2">
+          <span class="text-xs font-medium text-teal-800 bg-teal-50 px-3 py-1.5 rounded-full">
+            Nº Colegiada AO13522
+          </span>
+          <span class="text-xs font-medium text-teal-800 bg-teal-50 px-3 py-1.5 rounded-full">
+            Máster en Psicología General Sanitaria
+          </span>
+          <span class="text-xs font-medium text-teal-800 bg-teal-50 px-3 py-1.5 rounded-full">
+            +5 años de experiencia
+          </span>
+        </div>
+
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/40 hover:-translate-y-0.5 w-fit mt-2"
+        >
+          Reserva tu primera sesión
+        </a>
+      </div>
+
+      <div class="reveal order-2 lg:order-none">
+        <div
+          class="aspect-[4/5] max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl"
+        >
+          <Image src={majofoto} alt="Maria José Duarte Barrio, psicóloga" width={480} height={600} />
+        </div>
+        <div
+          class="absolute -bottom-8 -right-8 bg-rose-300 text-white p-6 rounded-2xl shadow-xl max-w-[200px] hidden md:block"
+        >
+          <p class="text-3xl font-serif font-medium mb-1">+5</p>
+          <p class="text-sm leading-tight">
+            Años de experiencia sanitaria ayudando a personas
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       MI HISTORIA
+  ============================== -->
+  <section class="py-24 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6">
+          Mi historia
+        </h2>
+      </div>
+      <div class="text-stone-600 text-lg leading-relaxed space-y-5 reveal">
+        <!-- ✏️ Esta sección es la que más humaniza tu web. Cuenta en primera persona:
+             qué te llevó a la psicología, un punto de inflexión, o cómo ha cambiado
+             tu forma de entender la terapia con los años. 2-4 párrafos son suficientes. -->
+        <p>
+          Llegué a la psicología por [cuenta aquí tu motivación real: una
+          vocación de siempre, una experiencia personal, un profesor que te
+          marcó...]. Desde entonces, no he dejado de formarme para poder
+          ofrecer un acompañamiento cada vez más completo.
+        </p>
+        <p>
+          Con el tiempo entendí que las herramientas puramente verbales no
+          siempre llegan a donde el malestar realmente vive: el cuerpo. Por
+          eso me formé en <strong>terapia Sensoriomotriz</strong>, un modelo
+          que me permite trabajar el trauma y el apego desde un lugar más
+          profundo y, a menudo, más rápido que la terapia tradicional.
+        </p>
+        <p>
+          Hoy acompaño a personas que atraviesan ansiedad, duelo, baja
+          autoestima o las huellas de experiencias difíciles, siempre desde
+          el respeto a su ritmo y sin recetas genéricas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FORMACIÓN Y TRAYECTORIA
+  ============================== -->
+  <section class="py-24 bg-amber-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="flex items-center justify-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
+        >
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+           Formación
+          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900">
+          Trayectoria y credenciales
+        </h2>
+      </div>
+
+      <div class="relative border-l-2 border-rose-300 ml-3 space-y-10">
+        {
+          FORMACION.map((item) => (
+            <div class="reveal relative pl-8">
+              <span class="absolute -left-[9px] top-1 w-4 h-4 bg-rose-400 rounded-full border-4 border-amber-50" />
+              <p class="text-sm font-medium text-rose-400 uppercase tracking-wide mb-1">
+                {item.year}
+              </p>
+              <h3 class="text-lg font-serif font-medium text-stone-900 mb-1">
+                {item.title}
+              </h3>
+              <p class="text-stone-600">{item.place}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       MI ENFOQUE
+  ============================== -->
+  <section class="py-24 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal order-2 lg:order-none">
+        <div class="max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
+          <Image src={majofoto2} alt="Maria José Duarte Barrio en consulta" width={480} height={600} />
+        </div>
+      </div>
+      <div class="flex flex-col gap-6 reveal order-1 lg:order-none">
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 leading-tight">
+          Mi enfoque terapéutico
+        </h2>
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4">
+          <p>
+            Trabajo desde un <strong>enfoque integrador</strong>: no aplico
+            una única técnica a todo el mundo, sino que adapto las
+            herramientas a cada persona y a lo que necesita en cada momento
+            de su proceso.
+          </p>
+          <p>
+            El eje central de mi trabajo es la <strong>terapia
+            Sensoriomotriz</strong>, un modelo que utiliza el cuerpo como
+            herramienta principal para procesar traumas, heridas de apego y
+            problemas de regulación emocional — especialmente útil cuando la
+            terapia hablada por sí sola no ha sido suficiente.
+          </p>
+          <!-- ✏️ Puedes añadir aquí referencias a otros modelos que uses
+               (p.ej. mindfulness, terapia cognitivo-conductual, EMDR...) -->
+        </div>
+        <a
+          href="/terapias"
+          class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors w-fit"
+        >
+          Ver cómo trabajo cada terapia
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       VALORES
+  ============================== -->
+  <section class="py-24 bg-amber-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6">
+          Cómo trabajo
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          VALORES.map((valor) => (
+            <div class="reveal bg-stone-50 p-6 rounded-2xl border border-stone-100 text-center">
+              <div class="text-3xl mb-4" aria-hidden="true">{valor.icon}</div>
+              <h3 class="font-semibold text-stone-900 mb-2">{valor.title}</h3>
+              <p class="text-sm text-stone-600 leading-relaxed">{valor.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CTA FINAL
+  ============================== -->
+  <section class="py-20 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div
+        class="reveal flex flex-col items-center bg-amber-50 p-8 md:p-12 rounded-[2rem] border border-rose-400 text-center"
+      >
+        <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          ✨ ¿Hablamos? ✨
+        </h3>
+        <p class="text-stone-600 mb-8 max-w-xl">
+          Si sientes que este es el momento de pedir ayuda, estoy aquí para
+          acompañarte. La primera sesión informativa es gratuita.
+        </p>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu sesión informativa gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          observer.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

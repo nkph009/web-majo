@@ -1,0 +1,279 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const SECCIONES = [
+  { id: "responsable", label: "1. Responsable del tratamiento" },
+  { id: "finalidad", label: "2. Finalidad del tratamiento" },
+  { id: "base-legal", label: "3. Base legal" },
+  { id: "conservacion", label: "4. Plazo de conservación" },
+  { id: "destinatarios", label: "5. Destinatarios y encargados de tratamiento" },
+  { id: "transferencias", label: "6. Transferencias internacionales" },
+  { id: "derechos", label: "7. Tus derechos" },
+  { id: "seguridad", label: "8. Seguridad de los datos" },
+  { id: "menores", label: "9. Menores de edad" },
+  { id: "cookies", label: "10. Cookies" },
+  { id: "cambios", label: "11. Cambios en esta política" },
+];
+---
+
+<BaseLayout
+  title="Política de Privacidad"
+  description="Política de privacidad y protección de datos del sitio web de Maria José Duarte Barrio, psicóloga colegiada."
+  canonical="https://mariajoseduartebarriopsicologia.com/privacidad"
+>
+  <section class="pt-36 pb-16 md:pt-40 md:pb-20 bg-amber-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-3xl text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mb-4">
+        Política de Privacidad
+      </h1>
+      <p class="text-stone-500 text-sm">
+        Última actualización: <!-- ✏️ pon la fecha real -->25 de julio de 2026
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-3xl">
+      <!-- Índice -->
+      <nav
+        class="bg-white border border-stone-100 rounded-2xl p-6 mb-16"
+        aria-label="Índice de la política de privacidad"
+      >
+        <p class="text-sm font-semibold text-stone-900 mb-3">Contenido</p>
+        <ul class="grid sm:grid-cols-2 gap-2 text-sm">
+          {
+            SECCIONES.map((s) => (
+              <li>
+                <a href={`#${s.id}`} class="text-teal-700 hover:text-teal-800 hover:underline">
+                  {s.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 mb-14 text-sm text-stone-700 leading-relaxed">
+        <strong>Nota sobre datos de salud:</strong> por la naturaleza de los
+        servicios psicológicos, los datos que compartes conmigo (incluidos
+        los tratados durante las sesiones) son datos relativos a la salud, y
+        tienen la consideración de <strong>categoría especial de datos</strong>
+        (art. 9 RGPD). Estos datos se tratan con las máximas garantías de
+        confidencialidad, conforme al secreto profesional que exige el
+        ejercicio de la psicología sanitaria.
+      </div>
+
+      <div class="text-stone-600 text-base leading-relaxed space-y-14">
+        <section id="responsable" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            1. Responsable del tratamiento
+          </h2>
+          <ul class="bg-white border border-stone-100 rounded-2xl p-6 space-y-2">
+            <li><strong>Responsable:</strong> Maria José Duarte Barrio</li>
+            <li><strong>NIF:</strong> <!-- ✏️ -->[Tu NIF]</li>
+            <li><strong>Domicilio:</strong> <!-- ✏️ --> Málaga, España</li>
+            <li>
+              <strong>Email:</strong>
+              info@mariajoseduartebarriopsicologia.com
+            </li>
+            <li><strong>Nº de colegiada:</strong> AO13522</li>
+          </ul>
+        </section>
+
+        <section id="finalidad" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            2. Finalidad del tratamiento
+          </h2>
+          <p class="mb-4">Tus datos se tratan con las siguientes finalidades:</p>
+          <ul class="space-y-2 list-disc pl-5">
+            <li>Atender y responder a las consultas que envíes por email o WhatsApp.</li>
+            <li>Gestionar la solicitud, programación y recordatorio de sesiones.</li>
+            <li>
+              Prestar el servicio de terapia psicológica, incluyendo los
+              datos que se traten durante las sesiones online o presenciales.
+            </li>
+            <li>
+              Cumplir con las obligaciones legales y deontológicas propias de
+              la profesión (por ejemplo, custodia de la historia clínica).
+            </li>
+          </ul>
+          <p class="mt-4">
+            <!-- ✏️ Si en el futuro añades newsletter, formulario propio o
+                 analítica, añade aquí esa finalidad y actualiza la base legal -->
+            No se utilizan tus datos con fines publicitarios ni se ceden a
+            terceros para fines comerciales.
+          </p>
+        </section>
+
+        <section id="base-legal" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            3. Base legal
+          </h2>
+          <p class="mb-4">El tratamiento de tus datos se basa en:</p>
+          <ul class="space-y-2 list-disc pl-5">
+            <li>
+              <strong>Consentimiento explícito</strong> del interesado (art.
+              6.1.a y art. 9.2.a RGPD), imprescindible al tratarse de datos
+              de salud, que se solicita antes de iniciar el proceso
+              terapéutico y en cada nuevo tratamiento de datos que lo
+              requiera.
+            </li>
+            <li>
+              <strong>Ejecución de una relación contractual/de prestación de
+              servicios</strong> (art. 6.1.b RGPD), para gestionar la cita y
+              prestar el servicio solicitado.
+            </li>
+            <li>
+              <strong>Cumplimiento de obligaciones legales</strong> (art.
+              6.1.c RGPD) aplicables al ejercicio sanitario.
+            </li>
+          </ul>
+        </section>
+
+        <section id="conservacion" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            4. Plazo de conservación
+          </h2>
+          <p>
+            Los datos derivados de una consulta de contacto que no continúe
+            en un proceso terapéutico se conservan solo el tiempo necesario
+            para atenderla. Los datos vinculados a un proceso terapéutico
+            (historia clínica) se conservan durante los plazos exigidos por
+            la normativa sanitaria y deontológica aplicable
+            <!-- ✏️ especifica el plazo exacto que manejas, p.ej. 5 años desde la última atención -->,
+            tras los cuales se eliminan o anonimizan de forma segura.
+          </p>
+        </section>
+
+        <section id="destinatarios" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            5. Destinatarios y encargados de tratamiento
+          </h2>
+          <p class="mb-4">
+            Tus datos no se ceden a terceros salvo obligación legal. Para
+            poder prestar el servicio, contamos con proveedores que actúan
+            como <strong>encargados de tratamiento</strong>, con los que
+            existe el correspondiente contrato de tratamiento de datos:
+          </p>
+          <ul class="space-y-2 list-disc pl-5">
+            <li>
+              <strong>Google Meet / Zoom</strong>, para la realización de
+              sesiones online por videollamada.
+            </li>
+            <li>
+              <strong>Vercel Inc.</strong>, como proveedor de alojamiento
+              ("hosting") de este sitio web.
+            </li>
+            <!-- ✏️ Añade aquí cualquier otro proveedor que trate datos:
+                 gestor de citas, email marketing, pasarela de pago, etc. -->
+          </ul>
+        </section>
+
+        <section id="transferencias" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            6. Transferencias internacionales de datos
+          </h2>
+          <p>
+            Algunos de los proveedores mencionados (como Google o Zoom)
+            pueden alojar datos en servidores ubicados fuera del Espacio
+            Económico Europeo, principalmente en Estados Unidos. En esos
+            casos, dichos proveedores se encuentran adheridos al <strong
+              >EU-US Data Privacy Framework</strong
+            > o aplican cláusulas contractuales tipo aprobadas por la Comisión
+            Europea, como garantía adecuada para la transferencia.
+          </p>
+        </section>
+
+        <section id="derechos" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            7. Tus derechos
+          </h2>
+          <p class="mb-4">
+            En cualquier momento puedes ejercer los siguientes derechos
+            sobre tus datos, escribiendo a
+            <strong>info@mariajoseduartebarriopsicologia.com</strong>,
+            adjuntando copia de un documento que acredite tu identidad:
+          </p>
+          <ul class="grid sm:grid-cols-2 gap-3">
+            {
+              [
+                "Acceso a tus datos personales",
+                "Rectificación de datos inexactos",
+                "Supresión ('derecho al olvido')",
+                "Limitación del tratamiento",
+                "Portabilidad de los datos",
+                "Oposición al tratamiento",
+              ].map((derecho) => (
+                <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  {derecho}
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-4">
+            Si consideras que el tratamiento de tus datos no se ajusta a la
+            normativa vigente, tienes derecho a presentar una reclamación
+            ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>,
+            a través de
+            <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" class="text-teal-700 underline">www.aepd.es</a>.
+          </p>
+        </section>
+
+        <section id="seguridad" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            8. Seguridad de los datos
+          </h2>
+          <p>
+            Se han adoptado las medidas técnicas y organizativas necesarias
+            para garantizar la seguridad, integridad y confidencialidad de
+            los datos tratados, y evitar su alteración, pérdida, tratamiento
+            o acceso no autorizado, teniendo en cuenta el estado de la
+            tecnología, la naturaleza de los datos y los riesgos a los que
+            están expuestos.
+          </p>
+        </section>
+
+        <section id="menores" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            9. Menores de edad
+          </h2>
+          <p>
+            Los servicios ofrecidos a través de este sitio web están
+            dirigidos a personas mayores de edad. En caso de que la terapia
+            vaya dirigida a un menor, se solicitará el consentimiento de sus
+            padres, madres o tutores legales conforme a la normativa
+            aplicable.
+          </p>
+        </section>
+
+        <section id="cookies" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            10. Cookies
+          </h2>
+          <p>
+            Este sitio web no utiliza cookies propias de análisis ni
+            publicitarias. Para más información, consulta nuestra
+            <a href="/cookies" class="text-teal-700 underline">Política de Cookies</a>.
+            <!-- ✏️ Si en el futuro añades Google Analytics, Meta Pixel u
+                 otro trazador, esta sección y la página /cookies deben
+                 actualizarse para reflejarlo y pedir consentimiento previo -->
+          </p>
+        </section>
+
+        <section id="cambios" class="scroll-mt-28">
+          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+            11. Cambios en esta política
+          </h2>
+          <p>
+            Esta política de privacidad puede actualizarse para adaptarse a
+            novedades legislativas o a cambios en los servicios ofrecidos.
+            Te recomendamos revisarla periódicamente.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

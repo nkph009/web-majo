@@ -1,0 +1,298 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import majofoto from "../assets/images/majo2.jpeg";
+
+const TERAPIAS_NAV = [
+  { label: "Terapia Individual", href: "#terapia-individual" },
+  { label: "Terapia Sensoriomotriz", href: "#terapia-sensoriomotriz" },
+  // ✏️ Cuando actives Presencial o Pareja, añade aquí su ancla
+  // { label: "Terapia de Pareja", href: "#terapia-de-pareja" },
+];
+---
+
+<BaseLayout
+  title="Terapias"
+  description="Terapia Individual y Terapia Sensoriomotriz con Maria José Duarte Barrio, psicóloga colegiada. Sesiones online, con base científica y trato cercano."
+  canonical="https://mariajoseduartebarriopsicologia.com/terapias"
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "serviceType": "Terapia Individual",
+        "name": "Terapia Individual",
+        "provider": { "@type": "Person", "name": "Maria José Duarte Barrio" },
+        "areaServed": "Online",
+        "description":
+          "Un espacio para ti donde abordar ansiedad, depresión, autoestima, gestión emocional o crisis vitales.",
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Terapia Sensoriomotriz",
+        "name": "Terapia Sensoriomotriz",
+        "provider": { "@type": "Person", "name": "Maria José Duarte Barrio" },
+        "areaServed": "Online",
+        "description":
+          "Modelo de psicoterapia que utiliza el cuerpo como herramienta principal para procesar traumas, heridas de apego y problemas de regulación emocional.",
+      },
+    ],
+  })} />
+
+  <!-- ==============================
+       INTRO
+  ============================== -->
+  <section class="pt-16 pb-16 md:pb-20 bg-[#fbeed4]">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+      <div
+        class="flex items-center justify-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
+      >
+        <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+         Terapias
+        <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-stone-900 mb-6 leading-tight">
+        Cómo puedo ayudarte
+      </h1>
+      <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+        Ofrezco un abordaje integral, adaptado a tu situación y a tu ritmo.
+        Estas son las dos líneas de trabajo con las que acompaño a mis
+        pacientes; si no sabes cuál encaja mejor contigo, cuéntamelo en la
+        primera sesión informativa y lo vemos juntas.
+      </p>
+
+      <!-- Navegación rápida entre terapias -->
+      <div class="flex flex-wrap justify-center gap-3 mt-10">
+        {
+          TERAPIAS_NAV.map((item) => (
+            <a
+              href={item.href}
+              class="px-5 py-2.5 bg-white text-stone-700 text-sm font-medium rounded-full border border-stone-200 hover:border-rose-300 hover:text-rose-400 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       TERAPIA INDIVIDUAL
+  ============================== -->
+  <section id="terapia-individual" class="py-24 bg-stone-50 scroll-mt-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal">
+        <!-- <div class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4">
+          <span class="text-2xl" aria-hidden="true">👤</span> Terapia Individual
+        </div> -->
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">
+          Terapia Individual
+        </h2>
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
+          <p>
+            Un espacio para ti donde abordar ansiedad, depresión, baja
+            autoestima, gestión emocional o crisis vitales. Trabajamos juntas
+            para entender qué hay detrás de lo que sientes y para que
+            recuperes herramientas y confianza en ti misma/o.
+          </p>
+          <p>
+            <!-- ✏️ Amplía aquí: para quién es especialmente indicada, qué
+                 diferencia tu forma de trabajar de otras terapias -->
+            Está especialmente indicada si sientes que la ansiedad o el
+            malestar emocional están afectando tu día a día, tus relaciones
+            o tu autoestima, y quieres un espacio profesional, confidencial y
+            sin juicios para trabajarlo.
+          </p>
+        </div>
+
+        <h3 class="font-semibold text-stone-900 mb-3">¿Qué trabajamos?</h3>
+        <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+          {
+            [
+              "Ansiedad y estrés",
+              "Estado de ánimo bajo / depresión",
+              "Autoestima y autoconcepto",
+              "Duelo y pérdidas",
+              "Crisis vitales",
+              "Gestión emocional",
+            ].map((tag) => (
+              <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-100 mb-8">
+          <h3 class="font-semibold text-stone-900 mb-2">¿Cómo es una sesión?</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            <!-- ✏️ Describe tu proceso real: primera sesión de evaluación,
+                 frecuencia habitual (semanal/quincenal), duración del proceso -->
+            Las sesiones duran 50 minutos y suelen tener una frecuencia
+            semanal o quincenal, según lo que necesites en cada momento. La
+            primera sesión es de evaluación e información, sin compromiso.
+          </p>
+        </div>
+
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu primera sesión
+        </a>
+      </div>
+
+      <div class="reveal lg:sticky lg:top-32">
+        <div class="aspect-[4/5] max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1703449481095-bb99a6928f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+            alt="Terapia Individual"
+            class="w-full h-full object-cover"
+            width="480"
+            height="600"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       TERAPIA SENSORIOMOTRIZ
+  ============================== -->
+  <section id="terapia-sensoriomotriz" class="py-24 bg-amber-50 scroll-mt-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal order-2 lg:order-1 lg:sticky lg:top-32">
+        <div class="max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
+          <Image src={majofoto} alt="Terapia Sensoriomotriz" width={480} height={600} />
+        </div>
+      </div>
+
+      <div class="reveal order-1 lg:order-2">
+        <!-- <div class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4">
+          <span class="text-2xl" aria-hidden="true">🧘</span> Terapia Sensoriomotriz
+        </div> -->
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">
+          Terapia Sensoriomotriz
+        </h2>
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
+          <p>
+            Es un modelo de psicoterapia que utiliza el cuerpo como
+            herramienta principal para procesar traumas, heridas de apego y
+            problemas de regulación emocional. Parte de la idea de que las
+            experiencias difíciles no solo se guardan en la mente: también
+            dejan huella física y emocional.
+          </p>
+          <p>
+            <!-- ✏️ Amplía aquí: en qué consiste una sesión de forma más
+                 técnica pero accesible, qué la diferencia de la terapia hablada -->
+            A diferencia de la terapia puramente conversacional, aquí
+            prestamos atención también a las sensaciones corporales, la
+            postura o los impulsos de movimiento, como vía de acceso a
+            recuerdos y emociones que a veces cuesta poner en palabras.
+          </p>
+        </div>
+
+        <h3 class="font-semibold text-stone-900 mb-3">¿Para quién es?</h3>
+        <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+          {
+            [
+              "Trauma (único o acumulado)",
+              "Heridas de apego",
+              "Desregulación emocional",
+              "Ansiedad somatizada",
+              "Bloqueos que no mejoran solo hablando",
+              "Estrés postraumático",
+            ].map((tag) => (
+              <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-100 mb-8">
+          <h3 class="font-semibold text-stone-900 mb-2">¿Cómo es una sesión?</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            <!-- ✏️ Describe tu proceso real de sensoriomotriz -->
+            Combinamos diálogo con atención al cuerpo: notar sensaciones,
+            tensión o impulsos que aparecen al hablar de ciertos temas, y
+            trabajarlos con calma y en un entorno seguro, siempre a tu ritmo
+            y sin forzar nada.
+          </p>
+        </div>
+
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu primera sesión
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✏️ Cuando quieras activar Terapia de Pareja o Presencial, copia una de
+       las dos secciones de arriba, cambia el id y el contenido, y añade su
+       enlace en TERAPIAS_NAV al principio del archivo. -->
+
+  <!-- ==============================
+       ¿NO SABES CUÁL ELEGIR?
+  ============================== -->
+  <section class="py-20 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div class="reveal flex flex-col items-center bg-amber-50 p-8 md:p-12 rounded-[2rem] border border-rose-400 text-center">
+        <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          ¿No sabes cuál es para ti?
+        </h3>
+        <p class="text-stone-600 mb-8 max-w-xl">
+          No pasa nada. En la primera sesión informativa, gratuita y sin
+          compromiso, valoramos juntas tu situación y te oriento hacia el
+          enfoque que mejor se adapte a ti.
+        </p>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu sesión informativa gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          observer.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
