@@ -1,0 +1,38 @@
+---
+// src/components/Logo.astro
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="49 94 102 75" class={className}>
+
+  <g fill="none" stroke="#1B3A5C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="55" y1="100" x2="145" y2="100"/>
+    <line x1="70" y1="100" x2="70" y2="163"/>
+    <line x1="100" y1="100" x2="100" y2="163"/>
+    <line x1="130" y1="100" x2="130" y2="163"/>
+    <line x1="60" y1="163" x2="80" y2="163"/>
+    <line x1="90" y1="163" x2="110" y2="163"/>
+    <line x1="120" y1="163" x2="140" y2="163"/>
+    <line x1="70" y1="107" x2="100" y2="145"/>
+    <line x1="100" y1="107" x2="70" y2="145"/>
+    <line x1="100" y1="107" x2="130" y2="145"/>
+    <line x1="130" y1="107" x2="100" y2="145"/>
+  </g>
+
+  <g fill="none" stroke="#F3A8AF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="55" y1="100" x2="145" y2="100"/>
+    <line x1="70" y1="100" x2="70" y2="163"/>
+    <line x1="100" y1="100" x2="100" y2="163"/>
+    <line x1="130" y1="100" x2="130" y2="163"/>
+    <line x1="60" y1="163" x2="80" y2="163"/>
+    <line x1="90" y1="163" x2="110" y2="163"/>
+    <line x1="120" y1="163" x2="140" y2="163"/>
+    <line x1="70" y1="107" x2="100" y2="145"/>
+    <line x1="100" y1="107" x2="70" y2="145"/>
+    <line x1="100" y1="107" x2="130" y2="145"/>
+    <line x1="130" y1="107" x2="100" y2="145"/>
+  </g>
+</svg>
