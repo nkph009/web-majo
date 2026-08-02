@@ -1,15 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const SECCIONES = [
-  { id: "identificacion", label: "1. Datos identificativos" },
-  { id: "objeto", label: "2. Objeto y ámbito de aplicación" },
-  { id: "condiciones", label: "3. Condiciones de uso" },
-  { id: "propiedad", label: "4. Propiedad intelectual e industrial" },
-  { id: "responsabilidad", label: "5. Exclusión de responsabilidad" },
-  { id: "legislacion", label: "6. Legislación y jurisdicción" },
-  { id: "modificaciones", label: "7. Modificaciones" },
-];
 ---
 
 <BaseLayout
@@ -22,74 +12,32 @@ const SECCIONES = [
       <h1 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mb-4">
         Aviso Legal
       </h1>
-      <p class="text-stone-500 text-sm">
-        Última actualización: <!-- ✏️ pon la fecha real -->25 de julio de 2026
-      </p>
     </div>
   </section>
 
   <section class="py-16 md:py-20 bg-stone-50">
     <div class="container mx-auto px-4 md:px-6 max-w-3xl">
-      <!-- Índice -->
-      <nav
-        class="bg-white border border-stone-100 rounded-2xl p-6 mb-16"
-        aria-label="Índice del aviso legal"
-      >
-        <p class="text-sm font-semibold text-stone-900 mb-3">Contenido</p>
-        <ul class="space-y-2 text-sm">
-          {
-            SECCIONES.map((s) => (
-              <li>
-                <a href={`#${s.id}`} class="text-teal-700 hover:text-teal-800 hover:underline">
-                  {s.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-
-      <div class="prose-legal text-stone-600 text-base leading-relaxed space-y-14">
+      <div class="text-stone-600 text-base leading-relaxed space-y-14">
         <section id="identificacion" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             1. Datos identificativos
-          </h2>
+          </p>
           <p class="mb-4">
             En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio,
             de Servicios de la Sociedad de la Información y de Comercio
             Electrónico (LSSI-CE), se informa de los siguientes datos:
+            Titular Maria José Duarte Barrio con NIF [Tu NIF], numero de colegiada AO13522,
+            perteneciente al Colegio Oficial de Psicología de [Nombre del Colegio Oficial de Psicología al que perteneces],
+            con domicilio [domicilio], Málaga, España, email de contacto [email] y teléfono [teléfono].
+            La presente web tiene como finalidad la prestación de
+            actividad profesional Servicios de psicología sanitaria.
           </p>
-          <ul class="bg-white border border-stone-100 rounded-2xl p-6 space-y-2">
-            <li><strong>Titular:</strong> Maria José Duarte Barrio</li>
-            <li><strong>NIF:</strong> <!-- ✏️ Añade tu NIF/DNI -->[Tu NIF]</li>
-            <li>
-              <strong>Domicilio:</strong>
-              <!-- ✏️ Añade tu domicilio profesional completo -->
-              Calle Salitre, [nº], Málaga, España
-            </li>
-            <li>
-              <strong>Email de contacto:</strong>
-              info@mariajoseduartebarriopsicologia.com
-            </li>
-            <li><strong>Teléfono:</strong> +34 616 31 26 99  <!-- ✏️ Verifica el número real --></li>
-            <li>
-              <strong>Nº de colegiada:</strong> AO13522
-            </li>
-            <li>
-              <strong>Colegio profesional:</strong>
-              <!-- ✏️ Añade el nombre exacto de tu colegio oficial -->
-              [Nombre del Colegio Oficial de Psicología al que perteneces]
-            </li>
-            <li>
-              <strong>Actividad:</strong> Servicios de psicología sanitaria
-            </li>
-          </ul>
         </section>
 
         <section id="objeto" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             2. Objeto y ámbito de aplicación
-          </h2>
+          </p>
           <p>
             El presente aviso legal regula el uso del sitio web
             mariajoseduartebarriopsicologia.com (en adelante, "el sitio web"),
@@ -104,9 +52,9 @@ const SECCIONES = [
         </section>
 
         <section id="condiciones" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             3. Condiciones de uso
-          </h2>
+          </p>
           <p>
             El usuario se compromete a hacer un uso adecuado y lícito del
             sitio web, de conformidad con la legislación aplicable, el
@@ -118,9 +66,9 @@ const SECCIONES = [
         </section>
 
         <section id="propiedad" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             4. Propiedad intelectual e industrial
-          </h2>
+          </p>
           <p>
             Todos los contenidos del sitio web (textos, fotografías,
             gráficos, logotipo, diseño e imágenes), salvo que se indique lo
@@ -133,9 +81,9 @@ const SECCIONES = [
         </section>
 
         <section id="responsabilidad" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             5. Exclusión de responsabilidad
-          </h2>
+          </p>
           <p>
             Maria José Duarte Barrio no se hace responsable de los daños y
             perjuicios que pudieran derivarse de interferencias,
@@ -149,9 +97,9 @@ const SECCIONES = [
         </section>
 
         <section id="legislacion" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             6. Legislación aplicable y jurisdicción
-          </h2>
+          </p>
           <p>
             Las presentes condiciones se rigen por la legislación española.
             Para la resolución de cualquier controversia derivada del acceso
@@ -164,9 +112,9 @@ const SECCIONES = [
         </section>
 
         <section id="modificaciones" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             7. Modificaciones
-          </h2>
+          </p>
           <p>
             Maria José Duarte Barrio se reserva el derecho a modificar el
             presente aviso legal para adaptarlo a novedades legislativas o

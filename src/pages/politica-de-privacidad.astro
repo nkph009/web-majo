@@ -1,19 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const SECCIONES = [
-  { id: "responsable", label: "1. Responsable del tratamiento" },
-  { id: "finalidad", label: "2. Finalidad del tratamiento" },
-  { id: "base-legal", label: "3. Base legal" },
-  { id: "conservacion", label: "4. Plazo de conservación" },
-  { id: "destinatarios", label: "5. Destinatarios y encargados de tratamiento" },
-  { id: "transferencias", label: "6. Transferencias internacionales" },
-  { id: "derechos", label: "7. Tus derechos" },
-  { id: "seguridad", label: "8. Seguridad de los datos" },
-  { id: "menores", label: "9. Menores de edad" },
-  { id: "cookies", label: "10. Cookies" },
-  { id: "cambios", label: "11. Cambios en esta política" },
-];
 ---
 
 <BaseLayout
@@ -26,64 +12,36 @@ const SECCIONES = [
       <h1 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mb-4">
         Política de Privacidad
       </h1>
-      <p class="text-stone-500 text-sm">
-        Última actualización: <!-- ✏️ pon la fecha real -->25 de julio de 2026
-      </p>
     </div>
   </section>
 
   <section class="py-16 md:py-20 bg-stone-50">
     <div class="container mx-auto px-4 md:px-6 max-w-3xl">
-      <!-- Índice -->
-      <nav
-        class="bg-white border border-stone-100 rounded-2xl p-6 mb-16"
-        aria-label="Índice de la política de privacidad"
-      >
-        <p class="text-sm font-semibold text-stone-900 mb-3">Contenido</p>
-        <ul class="grid sm:grid-cols-2 gap-2 text-sm">
-          {
-            SECCIONES.map((s) => (
-              <li>
-                <a href={`#${s.id}`} class="text-teal-700 hover:text-teal-800 hover:underline">
-                  {s.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
 
       <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 mb-14 text-sm text-stone-700 leading-relaxed">
-        <strong>Nota sobre datos de salud:</strong> por la naturaleza de los
+        Nota sobre datos de salud: por la naturaleza de los
         servicios psicológicos, los datos que compartes conmigo (incluidos
         los tratados durante las sesiones) son datos relativos a la salud, y
-        tienen la consideración de <strong>categoría especial de datos</strong>
+        tienen la consideración de categoría especial de datos
         (art. 9 RGPD). Estos datos se tratan con las máximas garantías de
         confidencialidad, conforme al secreto profesional que exige el
         ejercicio de la psicología sanitaria.
       </div>
 
       <div class="text-stone-600 text-base leading-relaxed space-y-14">
-        <section id="responsable" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             1. Responsable del tratamiento
-          </h2>
-          <ul class="bg-white border border-stone-100 rounded-2xl p-6 space-y-2">
-            <li><strong>Responsable:</strong> Maria José Duarte Barrio</li>
-            <li><strong>NIF:</strong> <!-- ✏️ -->[Tu NIF]</li>
-            <li><strong>Domicilio:</strong> <!-- ✏️ --> Málaga, España</li>
-            <li>
-              <strong>Email:</strong>
-              info@mariajoseduartebarriopsicologia.com
-            </li>
-            <li><strong>Nº de colegiada:</strong> AO13522</li>
-          </ul>
-        </section>
-
-        <section id="finalidad" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          </p>
+          <p>
+            El responsable del tratamiento de tus datos es Maria José Duarte
+            Barrio, psicóloga colegiada con número de colegiada AO13522,
+            perteneciente al Colegio Oficial de Psicología de [Nombre del
+            Colegio Oficial de Psicología al que perteneces], con domicilio
+            en [domicilio], Málaga, España, email de contacto
+          </p>   
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             2. Finalidad del tratamiento
-          </h2>
+          </p>
           <p class="mb-4">Tus datos se tratan con las siguientes finalidades:</p>
           <ul class="space-y-2 list-disc pl-5">
             <li>Atender y responder a las consultas que envíes por email o WhatsApp.</li>
@@ -103,37 +61,33 @@ const SECCIONES = [
             No se utilizan tus datos con fines publicitarios ni se ceden a
             terceros para fines comerciales.
           </p>
-        </section>
 
-        <section id="base-legal" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             3. Base legal
-          </h2>
+          </p>
           <p class="mb-4">El tratamiento de tus datos se basa en:</p>
           <ul class="space-y-2 list-disc pl-5">
             <li>
-              <strong>Consentimiento explícito</strong> del interesado (art.
+              Consentimiento explícito del interesado (art.
               6.1.a y art. 9.2.a RGPD), imprescindible al tratarse de datos
               de salud, que se solicita antes de iniciar el proceso
               terapéutico y en cada nuevo tratamiento de datos que lo
               requiera.
             </li>
             <li>
-              <strong>Ejecución de una relación contractual/de prestación de
-              servicios</strong> (art. 6.1.b RGPD), para gestionar la cita y
+              Ejecución de una relación contractual/de prestación de
+              servicios (art. 6.1.b RGPD), para gestionar la cita y
               prestar el servicio solicitado.
             </li>
             <li>
-              <strong>Cumplimiento de obligaciones legales</strong> (art.
+              Cumplimiento de obligaciones legales (art.
               6.1.c RGPD) aplicables al ejercicio sanitario.
             </li>
           </ul>
-        </section>
 
-        <section id="conservacion" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             4. Plazo de conservación
-          </h2>
+          </p>
           <p>
             Los datos derivados de una consulta de contacto que no continúe
             en un proceso terapéutico se conservan solo el tiempo necesario
@@ -143,36 +97,32 @@ const SECCIONES = [
             <!-- ✏️ especifica el plazo exacto que manejas, p.ej. 5 años desde la última atención -->,
             tras los cuales se eliminan o anonimizan de forma segura.
           </p>
-        </section>
 
-        <section id="destinatarios" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             5. Destinatarios y encargados de tratamiento
-          </h2>
+          </p>
           <p class="mb-4">
             Tus datos no se ceden a terceros salvo obligación legal. Para
             poder prestar el servicio, contamos con proveedores que actúan
-            como <strong>encargados de tratamiento</strong>, con los que
+            como encargados de tratamiento, con los que
             existe el correspondiente contrato de tratamiento de datos:
           </p>
           <ul class="space-y-2 list-disc pl-5">
             <li>
-              <strong>Google Meet / Zoom</strong>, para la realización de
+              Google Meet / Zoom, para la realización de
               sesiones online por videollamada.
             </li>
             <li>
-              <strong>Vercel Inc.</strong>, como proveedor de alojamiento
+              Vercel Inc., como proveedor de alojamiento
               ("hosting") de este sitio web.
             </li>
             <!-- ✏️ Añade aquí cualquier otro proveedor que trate datos:
                  gestor de citas, email marketing, pasarela de pago, etc. -->
           </ul>
-        </section>
 
-        <section id="transferencias" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             6. Transferencias internacionales de datos
-          </h2>
+          </p>
           <p>
             Algunos de los proveedores mencionados (como Google o Zoom)
             pueden alojar datos en servidores ubicados fuera del Espacio
@@ -182,16 +132,14 @@ const SECCIONES = [
             > o aplican cláusulas contractuales tipo aprobadas por la Comisión
             Europea, como garantía adecuada para la transferencia.
           </p>
-        </section>
 
-        <section id="derechos" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             7. Tus derechos
-          </h2>
+          </p>
           <p class="mb-4">
             En cualquier momento puedes ejercer los siguientes derechos
             sobre tus datos, escribiendo a
-            <strong>info@mariajoseduartebarriopsicologia.com</strong>,
+            info@mariajoseduartebarriopsicologia.com,
             adjuntando copia de un documento que acredite tu identidad:
           </p>
           <ul class="grid sm:grid-cols-2 gap-3">
@@ -216,16 +164,14 @@ const SECCIONES = [
           <p class="mt-4">
             Si consideras que el tratamiento de tus datos no se ajusta a la
             normativa vigente, tienes derecho a presentar una reclamación
-            ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>,
+            ante la Agencia Española de Protección de Datos (AEPD),
             a través de
             <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" class="text-teal-700 underline">www.aepd.es</a>.
           </p>
-        </section>
 
-        <section id="seguridad" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             8. Seguridad de los datos
-          </h2>
+          </p>
           <p>
             Se han adoptado las medidas técnicas y organizativas necesarias
             para garantizar la seguridad, integridad y confidencialidad de
@@ -234,12 +180,10 @@ const SECCIONES = [
             tecnología, la naturaleza de los datos y los riesgos a los que
             están expuestos.
           </p>
-        </section>
 
-        <section id="menores" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             9. Menores de edad
-          </h2>
+          </p>
           <p>
             Los servicios ofrecidos a través de este sitio web están
             dirigidos a personas mayores de edad. En caso de que la terapia
@@ -247,12 +191,10 @@ const SECCIONES = [
             padres, madres o tutores legales conforme a la normativa
             aplicable.
           </p>
-        </section>
 
-        <section id="cookies" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             10. Cookies
-          </h2>
+          </p>
           <p>
             Este sitio web no utiliza cookies propias de análisis ni
             publicitarias. Para más información, consulta nuestra
@@ -261,18 +203,15 @@ const SECCIONES = [
                  otro trazador, esta sección y la página /cookies deben
                  actualizarse para reflejarlo y pedir consentimiento previo -->
           </p>
-        </section>
 
-        <section id="cambios" class="scroll-mt-28">
-          <h2 class="text-2xl font-serif font-medium text-stone-900 mb-4">
+          <p class="text-2xl font-serif font-medium text-stone-900 mb-4">
             11. Cambios en esta política
-          </h2>
+          </p>
           <p>
             Esta política de privacidad puede actualizarse para adaptarse a
             novedades legislativas o a cambios en los servicios ofrecidos.
             Te recomendamos revisarla periódicamente.
           </p>
-        </section>
       </div>
     </div>
   </section>
