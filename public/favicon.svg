@@ -1,5 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#0f766e"/>
-  <path d="M9.5 7A3 3 0 0 1 12 10v10a3 3 0 0 1-5.95-.53A3 3 0 0 1 2.5 15.8a3.5 3.5 0 0 1-.4-6.7A3 3 0 0 1 3.7 4.2a3 3 0 0 1 2.37-3.6A3 3 0 0 1 9.5 7Z" transform="translate(4,4) scale(1.0)" fill="white" opacity="0.9"/>
-  <path d="M14.5 7A3 3 0 0 0 12 10v10a3 3 0 0 0 5.95-.53A3 3 0 0 0 21.5 15.8a3.5 3.5 0 0 0 .4-6.7A3 3 0 0 0 20.3 4.2a3 3 0 0 0-2.37-3.6A3 3 0 0 0 14.5 7Z" transform="translate(4,4) scale(1.0)" fill="white" opacity="0.9"/>
+---
+// src/components/Logo.astro
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="49 94 102 75">
+ 
+  <!-- Circulo -->
+  <!-- <circle cx="100" cy="100" r="88" fill="none" stroke="#1B3A5C" stroke-width="4"/> -->
+
+  <!-- Destello -->
+  <!-- <path
+    d="M100 38
+       C103 54, 109 60, 125 63
+       C109 66, 103 72, 100 88
+       C97 72, 91 66, 75 63
+       C91 60, 97 54, 100 38 Z"
+    fill="#F3A8AF" stroke="#1B3A5C" stroke-width="2" stroke-linejoin="round"/> -->
+
+  <!-- Monograma: contorno grueso en azul marino -->
+  <g fill="none" stroke="#1B3A5C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="55" y1="100" x2="145" y2="100"/>
+    <line x1="70" y1="100" x2="70" y2="163"/>
+    <line x1="100" y1="100" x2="100" y2="163"/>
+    <line x1="130" y1="100" x2="130" y2="163"/>
+    <line x1="60" y1="163" x2="80" y2="163"/>
+    <line x1="90" y1="163" x2="110" y2="163"/>
+    <line x1="120" y1="163" x2="140" y2="163"/>
+    <line x1="70" y1="107" x2="100" y2="145"/>
+    <line x1="100" y1="107" x2="70" y2="145"/>
+    <line x1="100" y1="107" x2="130" y2="145"/>
+    <line x1="130" y1="107" x2="100" y2="145"/>
+  </g>
+
+  <!-- Monograma: relleno rosa por encima -->
+  <g fill="none" stroke="#F3A8AF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="55" y1="100" x2="145" y2="100"/>
+    <line x1="70" y1="100" x2="70" y2="163"/>
+    <line x1="100" y1="100" x2="100" y2="163"/>
+    <line x1="130" y1="100" x2="130" y2="163"/>
+    <line x1="60" y1="163" x2="80" y2="163"/>
+    <line x1="90" y1="163" x2="110" y2="163"/>
+    <line x1="120" y1="163" x2="140" y2="163"/>
+    <line x1="70" y1="107" x2="100" y2="145"/>
+    <line x1="100" y1="107" x2="70" y2="145"/>
+    <line x1="100" y1="107" x2="130" y2="145"/>
+    <line x1="130" y1="107" x2="100" y2="145"/>
+  </g>
 </svg>
