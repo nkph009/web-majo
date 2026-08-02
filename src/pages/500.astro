@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Error interno — 500" description="Ha ocurrido un error interno del servidor. Intenta de nuevo más tarde.">
+    <div class="bg-amber-50">
+        <main class="container mx-auto px-4 py-24 max-w-3xl text-center">
+            <p class="text-sm uppercase tracking-[0.3em] text-rose-600 font-semibold mb-6">Error 500</p>
+            <h1 class="text-5xl font-semibold mb-4">Error interno del servidor</h1>
+            <p class="text-lg text-stone-600 mb-8">
+            Ha ocurrido un problema en el servidor. Intenta recargar la página o vuelve al inicio.
+            </p>
+            <a href="/" class="inline-flex items-center justify-center px-6 py-3 bg-rose-300 text-white rounded-full shadow-sm hover:bg-teal-800 transition">
+            Ir al inicio
+            </a>
+        </main>
+    </div>
+</BaseLayout>
