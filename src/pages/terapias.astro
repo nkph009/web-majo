@@ -1,13 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import majofoto from "../assets/images/majo2.jpeg";
 
 const TERAPIAS_NAV = [
-  { label: "Terapia Individual", href: "#terapia-individual" },
-  { label: "Terapia Sensoriomotriz", href: "#terapia-sensoriomotriz" },
-  // ✏️ Cuando actives Presencial o Pareja, añade aquí su ancla
-  // { label: "Terapia de Pareja", href: "#terapia-de-pareja" },
+  { label: "Terapia para traumas", href: "#terapia-trauma" },
+  { label: "Terapia para personas neurodivergentes adultas", href: "#terapia-neurodivergentes" },
+  { label: "Psicoterapia individual", href: "#terapia-individual" },
 ];
 ---
 
@@ -79,44 +76,48 @@ const TERAPIAS_NAV = [
   </section>
 
   <!-- ==============================
-       TERAPIA INDIVIDUAL
+       TRAUMA
   ============================== -->
-  <section id="terapia-individual" class="py-24 bg-stone-50 scroll-mt-24">
-    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-start">
+  <section id="terapia-trauma" class="py-24 bg-stone-50 scroll-mt-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="reveal">
-        <!-- <div class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4">
-          <span class="text-2xl" aria-hidden="true">👤</span> Terapia Individual
-        </div> -->
         <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">
-          Terapia Individual
+          Terapia para traumas
         </h2>
         <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
           <p>
-            Un espacio para ti donde abordar ansiedad, depresión, baja
-            autoestima, gestión emocional o crisis vitales. Trabajamos juntas
-            para entender qué hay detrás de lo que sientes y para que
-            recuperes herramientas y confianza en ti misma/o.
+            Hay experiencias que nos marcan y que pueden seguir presentes
+            mucho tiempo después de que hayan ocurrido. A veces pensamos que 
+            ya lo hemos dejado atrás, pero seguimos sintiendo miedo, tensión,
+            bloqueo o esa sensación de tener que estar siempre alerta.
           </p>
           <p>
-            <!-- ✏️ Amplía aquí: para quién es especialmente indicada, qué
-                 diferencia tu forma de trabajar de otras terapias -->
-            Está especialmente indicada si sientes que la ansiedad o el
-            malestar emocional están afectando tu día a día, tus relaciones
-            o tu autoestima, y quieres un espacio profesional, confidencial y
-            sin juicios para trabajarlo.
+            En terapia podemos ir entendiendo qué te pasa y cómo aquello
+            que has vivido sigue influyendo en tu manera de sentir, relacionarte
+            y afrontar lo que ocurre hoy.
+          </p>
+          <p>
+            Trabajo principalmente desde la Terapia Sensoriomotriz, que nos ayuda
+            a prestar atención no solo a lo que pensamos y sentimos, sino también a
+            cómo todo ello se refleja en el cuerpo.
+          </p>
+          <p>
+            Iré acompañándote respetando tu historia y tu ritmo, sin forzar procesos
+            para los que todavía no estés preparada.
           </p>
         </div>
 
-        <h3 class="font-semibold text-stone-900 mb-3">¿Qué trabajamos?</h3>
+        <h3 class="font-semibold text-stone-900 mb-3">Podemos trabajar, por ejemplo, cuando:</h3>
         <ul class="grid sm:grid-cols-2 gap-3 mb-8">
           {
             [
-              "Ansiedad y estrés",
-              "Estado de ánimo bajo / depresión",
-              "Autoestima y autoconcepto",
-              "Duelo y pérdidas",
-              "Crisis vitales",
-              "Gestión emocional",
+              "Has vivido una experiencia traumática o situaciones que te han dejado huella.",
+              "Sientes ansiedad, miedo o estás constantemente en alerta.",
+              "Te cuesta conectar con lo que sientes o, al contrario, sientes que las emociones te desbordan.",
+              "Tu cuerpo reacciona de formas que no siempre entiendes.",
+              "Has pasado por situaciones de abuso, violencia o relaciones que te han hecho daño.",
+              "Estás atravesando una pérdida o una experiencia que ha supuesto un antes y un después.",
+              "Te cuesta poner límites, cuidarte o sentirte segura en tus relaciones.",
             ].map((tag) => (
               <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
@@ -128,14 +129,11 @@ const TERAPIAS_NAV = [
           }
         </ul>
 
-        <div class="bg-white p-6 rounded-2xl border border-stone-100 mb-8">
-          <h3 class="font-semibold text-stone-900 mb-2">¿Cómo es una sesión?</h3>
-          <p class="text-sm text-stone-600 leading-relaxed">
-            <!-- ✏️ Describe tu proceso real: primera sesión de evaluación,
-                 frecuencia habitual (semanal/quincenal), duración del proceso -->
-            Las sesiones duran 50 minutos y suelen tener una frecuencia
-            semanal o quincenal, según lo que necesites en cada momento. La
-            primera sesión es de evaluación e información, sin compromiso.
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
+          <p>
+            No se trata de olvidar lo que ha pasado ni de hacer como si no hubiera ocurrido.
+            <b>Se trata de poder entender lo que te pasa, sentirte más segura en el presente
+            y encontrar poco a poco otras maneras de responder.</b>
           </p>
         </div>
 
@@ -145,69 +143,56 @@ const TERAPIAS_NAV = [
         >
           Reserva tu primera sesión
         </a>
-      </div>
-
-      <div class="reveal lg:sticky lg:top-32">
-        <div class="aspect-[4/5] max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1703449481095-bb99a6928f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-            alt="Terapia Individual"
-            class="w-full h-full object-cover"
-            width="480"
-            height="600"
-            loading="lazy"
-          />
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ==============================
-       TERAPIA SENSORIOMOTRIZ
+       TERAPIA NEURODIVERGENTES
   ============================== -->
-  <section id="terapia-sensoriomotriz" class="py-24 bg-amber-50 scroll-mt-24">
-    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-start">
-      <div class="reveal order-2 lg:order-1 lg:sticky lg:top-32">
-        <div class="max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
-          <Image src={majofoto} alt="Terapia Sensoriomotriz" width={480} height={600} />
-        </div>
-      </div>
-
+  <section id="terapia-neurodivergentes" class="py-24 bg-amber-50 scroll-mt-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="reveal order-1 lg:order-2">
-        <!-- <div class="flex items-center gap-3 text-teal-700 font-medium tracking-wide text-sm uppercase mb-4">
-          <span class="text-2xl" aria-hidden="true">🧘</span> Terapia Sensoriomotriz
-        </div> -->
         <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">
-          Terapia Sensoriomotriz
+          Terapia para personas neurodivergentes adultas
         </h2>
         <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
           <p>
-            Es un modelo de psicoterapia que utiliza el cuerpo como
-            herramienta principal para procesar traumas, heridas de apego y
-            problemas de regulación emocional. Parte de la idea de que las
-            experiencias difíciles no solo se guardan en la mente: también
-            dejan huella física y emocional.
+            Ser neurodivergente puede hacer que vivas, sientas o entiendas
+            algunas cosas de una manera diferente. Pero muchas veces el malestar
+            no viene de ser como eres, sino de haber pasado años intentando
+            adaptarte, encajar o hacer las cosas de una determinada manera para
+            que los demás te entiendan.
           </p>
           <p>
-            <!-- ✏️ Amplía aquí: en qué consiste una sesión de forma más
-                 técnica pero accesible, qué la diferencia de la terapia hablada -->
-            A diferencia de la terapia puramente conversacional, aquí
-            prestamos atención también a las sensaciones corporales, la
-            postura o los impulsos de movimiento, como vía de acceso a
-            recuerdos y emociones que a veces cuesta poner en palabras.
+            Por eso, para mí es importante que la terapia sea un espacio en el
+            que <b>no tengas que esforzarte por parecer “normal” ni esconder partes de ti.</b>
+          </p>
+          <p>
+            Una parte importante de mi trabajo es ayudarte a diferenciar qué
+            puede estar relacionado con tu neurodivergencia y qué puede tener que
+            ver con experiencias difíciles, trauma, ansiedad o con tantos años
+            intentando adaptarte. A veces estas cosas se mezclan y no es fácil
+            saber dónde empieza una y termina la otra.
+          </p>
+          <p>
+            <b>La idea no es cambiar quién eres. Es ayudarte a entenderte mejor,
+            reconocer lo que necesitas y encontrar formas de vivir que tengan sentido para ti.</b>
           </p>
         </div>
 
-        <h3 class="font-semibold text-stone-900 mb-3">¿Para quién es?</h3>
+        <h3 class="font-semibold text-stone-900 mb-3">Podemos trabajar, entre otras cosas, cuando:</h3>
         <ul class="grid sm:grid-cols-2 gap-3 mb-8">
           {
             [
-              "Trauma (único o acumulado)",
-              "Heridas de apego",
-              "Desregulación emocional",
-              "Ansiedad somatizada",
-              "Bloqueos que no mejoran solo hablando",
-              "Estrés postraumático",
+              "Te sientes sobrecargada o agotada después de estar mucho tiempo adaptándote.",
+              "La ansiedad o el estrés están ocupando demasiado espacio.",
+              "Te cuesta entender qué necesitas o explicar cómo te sientes.",
+              "Sientes que las relaciones o la comunicación con los demás te resultan especialmente difíciles.",
+              "Te exiges demasiado y tienes la sensación de no llegar nunca a todo.",
+              "Te cuesta poner límites o reconocer cuándo necesitas parar.",
+              "Quieres entender mejor tu forma de funcionar y conocerte desde otro lugar.",
+              "Durante mucho tiempo has sentido que eras “demasiado”, “rara” o que nunca eras suficiente.",
             ].map((tag) => (
               <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
@@ -218,18 +203,6 @@ const TERAPIAS_NAV = [
             ))
           }
         </ul>
-
-        <div class="bg-white p-6 rounded-2xl border border-stone-100 mb-8">
-          <h3 class="font-semibold text-stone-900 mb-2">¿Cómo es una sesión?</h3>
-          <p class="text-sm text-stone-600 leading-relaxed">
-            <!-- ✏️ Describe tu proceso real de sensoriomotriz -->
-            Combinamos diálogo con atención al cuerpo: notar sensaciones,
-            tensión o impulsos que aparecen al hablar de ciertos temas, y
-            trabajarlos con calma y en un entorno seguro, siempre a tu ritmo
-            y sin forzar nada.
-          </p>
-        </div>
-
         <a
           href="/#contacto"
           class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
@@ -240,14 +213,67 @@ const TERAPIAS_NAV = [
     </div>
   </section>
 
-  <!-- ✏️ Cuando quieras activar Terapia de Pareja o Presencial, copia una de
-       las dos secciones de arriba, cambia el id y el contenido, y añade su
-       enlace en TERAPIAS_NAV al principio del archivo. -->
+    <!-- ==============================
+       TERAPIA INDIVIDUAL
+  ============================== -->
+  <section id="terapia-individual" class="py-24 bg-stone-50 scroll-mt-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="reveal">
+        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">
+          Psicoterapia individual
+        </h2>
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4 mb-8">
+          <p>
+            No hace falta tener muy claro qué te pasa para empezar terapia.
+          </p>
+          <p>
+            A veces simplemente sabes que no estás bien. Que estás cansada,
+            que llevas demasiado tiempo intentando poder con todo o que hay
+            algo que se ha hecho difícil de sostener.
+          </p>
+          <p>
+            La terapia puede ser ese espacio para parar un poco, poner
+            en palabras lo que te está pasando y empezar a entenderte mejor,
+            sin juzgarte por sentir lo que sientes.
+          </p>
+        </div>  
+
+        <h3 class="font-semibold text-stone-900 mb-3">Podemos trabajar juntas en diferentes momentos y dificultades de la vida, como:</h3>
+        <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+          {
+            [
+              "Ansiedad, estrés o preocupación constante.",
+              "Autoexigencia y perfeccionismo.",
+              "Baja autoestima e inseguridad.",
+              "Dificultad para gestionar lo que sientes.",
+              "Problemas en las relaciones o dificultad para poner límites.",
+              "Cambios importantes, pérdidas y procesos de duelo.",
+              "Sentirte desconectada de ti misma o no saber qué necesitas.",
+              "Momentos de crisis o etapas en las que sientes que necesitas apoyo.",
+            ].map((tag) => (
+              <li class="flex items-center gap-2 text-sm text-stone-700 bg-white px-4 py-2.5 rounded-xl border border-stone-100">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-teal-600 shrink-0" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all"
+        >
+          Reserva tu primera sesión
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ==============================
        ¿NO SABES CUÁL ELEGIR?
   ============================== -->
-  <section class="py-20 bg-stone-50">
+  <section class="py-20 bg-amber-50">
     <div class="container mx-auto px-4 md:px-6 max-w-4xl">
       <div class="reveal flex flex-col items-center bg-amber-50 p-8 md:p-12 rounded-[2rem] border border-rose-400 text-center">
         <h3 class="text-2xl font-serif font-medium text-stone-900 mb-4">

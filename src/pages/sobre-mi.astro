@@ -105,8 +105,19 @@ const VALORES = [
             hemos vivido no solo se guardan en la mente, también dejan huella
             en el cuerpo y en las emociones.
           </p>
-          <!-- ✏️ Añade aquí 1-2 párrafos más: por qué te hiciste psicóloga,
-               algo personal que humanice la página, o a quién sueles ayudar más -->
+          <p>
+            Quizá has llegado hasta aquí porque hay algo que últimamente no termina de estar bien.
+          </p>
+          <p>
+            Puede que estés sintiendo ansiedad, que te cueste parar y descansar, que seas demasiado exigente contigo o que te cueste entender lo que necesitas.
+          </p>
+          <p>
+            Quizá hay cosas de tu pasado que todavía pesan, experiencias que te han dejado huella o momentos de cambio, pérdida o incertidumbre que te están resultando difíciles de atravesar.
+          </p> 
+          <p>
+            O simplemente sientes que necesitas un espacio para parar, escucharte y empezar a cuidarte de otra manera.
+            <b>Si te has sentido identificada con alguna de estas situaciones, estás en el lugar adecuado.</b>
+          </p>
         </div>
 
         <div class="flex flex-wrap gap-3 mt-2">
@@ -148,112 +159,60 @@ const VALORES = [
   </section>
 
   <!-- ==============================
-       MI HISTORIA
+       MI FORMA DE TRABAJAR Y ENFOQUE
   ============================== -->
-  <section class="py-24 bg-stone-50">
-    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 mb-6">
-          Mi historia
-        </h2>
-      </div>
-      <div class="text-stone-600 text-lg leading-relaxed space-y-5 reveal">
-        <!-- ✏️ Esta sección es la que más humaniza tu web. Cuenta en primera persona:
-             qué te llevó a la psicología, un punto de inflexión, o cómo ha cambiado
-             tu forma de entender la terapia con los años. 2-4 párrafos son suficientes. -->
-        <p>
-          Llegué a la psicología por [cuenta aquí tu motivación real: una
-          vocación de siempre, una experiencia personal, un profesor que te
-          marcó...]. Desde entonces, no he dejado de formarme para poder
-          ofrecer un acompañamiento cada vez más completo.
-        </p>
-        <p>
-          Con el tiempo entendí que las herramientas puramente verbales no
-          siempre llegan a donde el malestar realmente vive: el cuerpo. Por
-          eso me formé en <strong>terapia Sensoriomotriz</strong>, un modelo
-          que me permite trabajar el trauma y el apego desde un lugar más
-          profundo y, a menudo, más rápido que la terapia tradicional.
-        </p>
-        <p>
-          Hoy acompaño a personas que atraviesan ansiedad, duelo, baja
-          autoestima o las huellas de experiencias difíciles, siempre desde
-          el respeto a su ritmo y sin recetas genéricas.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-       FORMACIÓN Y TRAYECTORIA
-  ============================== -->
-  <section class="py-24 bg-amber-50">
-    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <div
-          class="flex items-center justify-center gap-3 text-rose-400 font-medium tracking-wide text-sm uppercase mb-4"
-        >
-          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
-           Formación
-          <span class="w-8 h-px bg-rose-400" aria-hidden="true"></span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900">
-          Trayectoria y credenciales
-        </h2>
-      </div>
-
-      <div class="relative border-l-2 border-rose-300 ml-3 space-y-10">
-        {
-          FORMACION.map((item) => (
-            <div class="reveal relative pl-8">
-              <span class="absolute -left-[9px] top-1 w-4 h-4 bg-rose-400 rounded-full border-4 border-amber-50" />
-              <p class="text-sm font-medium text-rose-400 uppercase tracking-wide mb-1">
-                {item.year}
-              </p>
-              <h3 class="text-lg font-serif font-medium text-stone-900 mb-1">
-                {item.title}
-              </h3>
-              <p class="text-stone-600">{item.place}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-       MI ENFOQUE
-  ============================== -->
-  <section class="py-24 bg-stone-50">
-    <div class="container mx-auto px-4 md:px-6 max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
-      <div class="reveal order-2 lg:order-none">
-        <div class="max-w-md mx-auto relative rounded-[2rem] overflow-hidden shadow-xl">
-          <Image src={majofoto2} alt="Maria José Duarte Barrio en consulta" width={480} height={600} />
-        </div>
-      </div>
-      <div class="flex flex-col gap-6 reveal order-1 lg:order-none">
+  <section class="py-12 bg-stone-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="reveal">
         <h2 class="text-3xl md:text-4xl font-serif font-medium text-stone-900 leading-tight">
-          Mi enfoque terapéutico
+          Mi forma de trabajar
         </h2>
         <div class="text-stone-600 text-lg leading-relaxed space-y-4">
           <p>
-            Trabajo desde un <strong>enfoque integrador</strong>: no aplico
-            una única técnica a todo el mundo, sino que adapto las
-            herramientas a cada persona y a lo que necesita en cada momento
-            de su proceso.
+            Mi trabajo consiste en acompañarte a entender mejor lo que te está pasando, no solo desde lo que piensas, sino también desde lo que sientes y desde cómo lo vive tu cuerpo.
           </p>
           <p>
-            El eje central de mi trabajo es la <strong>terapia
-            Sensoriomotriz</strong>, un modelo que utiliza el cuerpo como
-            herramienta principal para procesar traumas, heridas de apego y
-            problemas de regulación emocional — especialmente útil cuando la
-            terapia hablada por sí sola no ha sido suficiente.
+            Estoy especializada en <b>trauma y acompañamiento emocional</b>, y mi formación incluye el <b>Máster en Psicología General Sanitaria</b> y el <b>experto en Trauma</b> de la Universidad de Alcalá de Henares.
           </p>
-          <!-- ✏️ Puedes añadir aquí referencias a otros modelos que uses
-               (p.ej. mindfulness, terapia cognitivo-conductual, EMDR...) -->
+          <p>
+            A lo largo de mi trayectoria me he formado también en <b>Terapia Sensoriomotriz (Nivel II)</b>, intervención en trauma y emergencias, duelo, neurodivergencias (Autismo, TDAH, Altas capacidades), autolesión e ideación suicida, dolor emocional y crónico desde una perspectiva biopsicosocial, violencia en la pareja, somatizaciones digestivas y salud mental, además de intervención en crisis y acompañamiento psicológico.
+          </p>
+          <p>
+            Para mí, seguir formándome es una parte importante de mi trabajo. Cada persona es diferente y, por eso, creo que la terapia no debería ser un “mismo método para todo el mundo”.
+          </p>
+        </div>
+        <h3 class="text-xl md:text-2xl font-serif font-medium text-stone-900 mt-10">¿Por qué un enfoque integrador?</h3>
+        <div class="text-stone-600 text-lg leading-relaxed space-y-4">
+          <p>
+            Porque <b>tú eres mucho más que un diagnóstico o un problema concreto.</b>
+          </p>
+          <p>
+            Un enfoque integrador me permite conocer tu historia, tus necesidades y 
+            tu manera particular de vivir lo que te está pasando, para ir escogiendo 
+            las herramientas que puedan ayudarte más en cada momento.
+          </p>
+          <p>
+            No todas las personas necesitan lo mismo, ni responden de la misma manera
+            a una determinada forma de trabajar. Por eso, para mí es importante poder
+            ser flexible y no quedarme encerrada en una única perspectiva.            
+          </p>
+          <p>
+            Integro diferentes conocimientos y herramientas para poder mirar lo que ocurre
+            desde distintos lugares: <b>lo que piensas, lo que sientes, lo que haces
+            y lo que ocurre en tu cuerpo.</b> Y, especialmente cuando hablamos de experiencias
+            difíciles o de trauma, esta mirada más amplia puede ayudarnos a comprender 
+            por qué a veces sabemos racionalmente que estamos bien, pero nuestro cuerpo 
+            sigue reaccionando como si tuviera que protegerse.            
+          </p>
+          <p>
+            Mi intención es que la terapia sea un espacio en el que podamos ir encontrando,
+            juntas, qué necesitas y qué puede ayudarte realmente. <b>Sin fórmulas rígidas,
+            respetando tu ritmo y adaptándonos a ti.</b>
+          </p>
         </div>
         <a
           href="/terapias"
-          class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors w-fit"
+          class="inline-flex items-center justify-center gap-2 bg-rose-300 hover:bg-rose-400 text-white px-8 py-4 rounded-full font-medium transition-all shadow-lg shadow-teal-700/20 hover:shadow-teal-700/40 hover:-translate-y-0.5 w-fit mt-8"
         >
           Ver cómo trabajo cada terapia
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -265,7 +224,7 @@ const VALORES = [
   </section>
 
   <!-- ==============================
-       VALORES
+       COMO TRABAJO
   ============================== -->
   <section class="py-24 bg-amber-50">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
