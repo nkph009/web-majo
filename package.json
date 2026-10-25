@@ -1,5 +1,5 @@
 {
-  "name": "elena-costa-psicologia",
+  "name": "maria-jose-duarte-psicologia",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
@@ -8,8 +8,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "astro": "^5.0.0",
+    "resend": "^6.34.1",
     "tailwindcss": "^3.4.0"
   }
 }

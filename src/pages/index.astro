@@ -211,7 +211,7 @@ const RECENT_POSTS = [
           dejan en el cuerpo para ayudarte a comprender el origen de tu malestar y recuperar el equilibrio.
         </p>
 
-        <!-- Foto (solo mobile): entre el texto y los botones -->
+        <!-- Photo (mobile only): between text and CTA buttons -->
         <div class="lg:hidden relative flex items-center justify-center fade-in-up">
           <div
             class="absolute inset-0 bg-rose-200 rounded-[3rem] rotate-3 scale-95 opacity-50"
@@ -367,7 +367,7 @@ const RECENT_POSTS = [
   </section>
 
   <!-- ==============================
-       SOBRE MÍ
+       ABOUT ME
   ============================== -->
   <section id="sobre-mi" class="py-24 bg-amber-50 relative overflow-hidden">
     <div
@@ -463,7 +463,7 @@ const RECENT_POSTS = [
   </section>
 
   <!-- ==============================
-       SERVICIOS
+       SERVICES
   ============================== -->
   <section id="servicios" class="py-24 bg-[#fbeed4]">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
@@ -545,7 +545,7 @@ const RECENT_POSTS = [
         }
       </div>
 
-      <!-- Modalidades -->
+      <!-- Modalities -->
       <!-- <div
         class="bg-teal-800 rounded-[2rem] p-8 md:p-12 text-white overflow-hidden relative"
       >
@@ -597,7 +597,7 @@ const RECENT_POSTS = [
   </section>
 
   <!-- ==============================
-       CÓMO FUNCIONA
+       HOW IT WORKS
   ============================== -->
   <section id="como-funciona" class="py-24 bg-amber-50">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
@@ -662,7 +662,7 @@ const RECENT_POSTS = [
   </section>
 
   <!-- ==============================
-       TARIFAS
+       PRICING
   ============================== -->
   <section id="tarifas" class="py-24 bg-[#fbeed4]">
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
@@ -814,7 +814,7 @@ const RECENT_POSTS = [
   </section>
 
   <!-- ==============================
-       CONTACTO
+       CONTACT
   ============================== -->
   <section
     id="contacto"
@@ -909,7 +909,7 @@ const RECENT_POSTS = [
         </div>
       </div>
 
-      <!-- Formulario -->
+      <!-- Form -->
       <div
         class="reveal bg-stone-50 rounded-[2rem] p-8 md:p-10 shadow-2xl relative text-stone-900"
       >
@@ -921,9 +921,7 @@ const RECENT_POSTS = [
             <div>
               <label
                 for="name"
-                class="block text-sm font-medium text-stone-700 mb-2"
-                >Nombre completo</label
-              >
+                class="block text-sm font-medium text-stone-700 mb-2">Nombre completo</label>
               <input
                 type="text"
                 id="name"
@@ -937,9 +935,7 @@ const RECENT_POSTS = [
             <div>
               <label
                 for="phone"
-                class="block text-sm font-medium text-stone-700 mb-2"
-                >Teléfono</label
-              >
+                class="block text-sm font-medium text-stone-700 mb-2">Teléfono</label>
               <input
                 type="tel"
                 id="phone"
@@ -955,8 +951,7 @@ const RECENT_POSTS = [
           <div>
             <label
               for="email"
-              class="block text-sm font-medium text-stone-700 mb-2">Email</label
-            >
+              class="block text-sm font-medium text-stone-700 mb-2">Email</label>
             <input
               type="email"
               id="email"
@@ -971,9 +966,7 @@ const RECENT_POSTS = [
           <div>
             <label
               for="modality"
-              class="block text-sm font-medium text-stone-700 mb-2"
-              >Tipo de terapia</label
-            >
+              class="block text-sm font-medium text-stone-700 mb-2">Tipo de terapia</label>
             <select
               id="modality"
               name="modality"
@@ -1001,6 +994,11 @@ const RECENT_POSTS = [
             ></textarea>
           </div>
 
+          <!-- Anti-spam honeypot (hidden from real users) -->
+          <div class="hidden" aria-hidden="true" style="display: none;">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
           <button
             type="submit"
             id="submit-btn"
@@ -1022,9 +1020,14 @@ const RECENT_POSTS = [
           </button>
           <p
             id="form-success"
-            class="hidden text-center text-sm text-teal-700 font-medium bg-teal-50 px-4 py-3 rounded-xl"
+            class="hidden text-center text-sm text-teal-700 font-medium bg-teal-50 px-4 py-3 rounded-xl border border-teal-200"
           >
             ✅ Mensaje enviado. Te contactaré lo antes posible.
+          </p>
+          <p
+            id="form-error"
+            class="hidden text-center text-sm text-rose-700 font-medium bg-rose-50 px-4 py-3 rounded-xl border border-rose-200"
+          >
           </p>
           <p class="text-xs text-stone-400 text-center">
             Tus datos serán tratados con estricta confidencialidad.
@@ -1167,7 +1170,7 @@ const RECENT_POSTS = [
 </style>
 
 <script>
-  // Intersection Observer para animaciones de scroll
+  // Intersection Observer for scroll animations
   const observer = new IntersectionObserver(
     (entries) =>
       entries.forEach((e) => {
@@ -1180,21 +1183,69 @@ const RECENT_POSTS = [
   );
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-  // Formulario de contacto
+  // Contact form
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const btn = document.getElementById("submit-btn") as HTMLButtonElement;
   const btnText = document.getElementById("btn-text")!;
   const successMsg = document.getElementById("form-success")!;
+  const errorMsg = document.getElementById("form-error")!;
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Reset previous notices
+    successMsg.classList.add("hidden");
+    if (errorMsg) errorMsg.classList.add("hidden");
+
+    const formData = new FormData(form);
+    const data = {
+      name: (formData.get("name") as string || "").trim(),
+      phone: (formData.get("phone") as string || "").trim(),
+      email: (formData.get("email") as string || "").trim(),
+      modality: formData.get("modality") as string,
+      message: (formData.get("message") as string || "").trim(),
+      _gotcha: (formData.get("_gotcha") as string || ""),
+    };
+
+    if (!data.name || !data.phone || !data.email) {
+      if (errorMsg) {
+        errorMsg.textContent = "Por favor, completa los campos requeridos (nombre, teléfono y email).";
+        errorMsg.classList.remove("hidden");
+      }
+      return;
+    }
+
     btn.disabled = true;
     btnText.textContent = "Enviando...";
-    await new Promise((r) => setTimeout(r, 1500));
-    form.reset();
-    btn.disabled = false;
-    btnText.textContent = "Enviar mensaje";
-    successMsg.classList.remove("hidden");
-    setTimeout(() => successMsg.classList.add("hidden"), 6000);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.success) {
+        form.reset();
+        successMsg.classList.remove("hidden");
+        setTimeout(() => successMsg.classList.add("hidden"), 8000);
+      } else {
+        throw new Error(result.error || "No se pudo enviar el mensaje.");
+      }
+    } catch (err: any) {
+      if (errorMsg) {
+        errorMsg.textContent =
+          err.message ||
+          "Hubo un error al enviar el formulario. Por favor, contáctame por WhatsApp o email directo.";
+        errorMsg.classList.remove("hidden");
+      }
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = "Enviar mensaje";
+    }
   });
 </script>

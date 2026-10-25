@@ -39,7 +39,7 @@ const NAV_LINKS = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO primario -->
+    <!-- Primary SEO -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -88,7 +88,7 @@ const NAV_LINKS = [
       }
     </script>
 
-    <!-- Fuentes -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -133,7 +133,7 @@ const NAV_LINKS = [
           </div>
         </a>
 
-        <!-- Nav escritorio -->
+        <!-- Desktop Navigation -->
         <nav
           class="hidden lg:flex items-center gap-8"
           aria-label="Navegación principal"
@@ -158,7 +158,7 @@ const NAV_LINKS = [
           </a>
         </nav>
 
-        <!-- Botón móvil -->
+        <!-- Mobile Button -->
         <button
           id="menu-toggle"
           class="lg:hidden p-2 text-stone-600"
@@ -201,7 +201,7 @@ const NAV_LINKS = [
       </div>
     </header>
 
-    <!-- Menú móvil -->
+    <!-- Mobile Menu -->
     <div
       id="mobile-menu"
       class="fixed inset-0 z-40 bg-white pt-24 pb-6 px-6 lg:hidden flex-col gap-6 overflow-y-auto hidden"
@@ -232,7 +232,7 @@ const NAV_LINKS = [
       </nav>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- MAIN CONTENT -->
     <main class="flex-1 flex flex-col pt-24">
       <slot />
     </main>
@@ -330,7 +330,7 @@ const NAV_LINKS = [
 </html>
 
 <script>
-  // Año dinámico
+  // Dynamic year
   document.getElementById("year")!.textContent = new Date()
     .getFullYear()
     .toString();
@@ -361,7 +361,7 @@ const NAV_LINKS = [
     { passive: true },
   );
 
-  // Menú móvil
+  // Mobile menu
   const toggle = document.getElementById("menu-toggle")!;
   const menu = document.getElementById("mobile-menu")!;
   const iconMenu = document.getElementById("icon-menu")!;
@@ -377,7 +377,7 @@ const NAV_LINKS = [
     document.body.style.overflow = isOpen ? "" : "hidden";
   });
 
-  // Cerrar menú al hacer click en un enlace
+  // Close mobile menu on link click
   document.querySelectorAll(".mobile-nav-link").forEach((link) => {
     link.addEventListener("click", () => {
       menu.classList.add("hidden");
