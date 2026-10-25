@@ -29,10 +29,10 @@ export default async function handler(req, res) {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
     const { name, email, phone, modality, message, _gotcha } = body;
 
-    // 1. Anti-spam honeypot: if filled by a bot, silently return success
-    if (_gotcha) {
-      console.warn('Bot submission caught by honeypot (_gotcha).');
-      return res.status(200).json({ success: true });
+    // 1. Anti-spam honeypot: if filled by an automated bot, exit silently
+    if (_gotcha && String(_gotcha).trim().length > 0) {
+      console.warn('Bot submission caught by honeypot (_gotcha). Value:', _gotcha);
+      return res.status(200).json({ success: true, bot: true });
     }
 
     // 2. Required fields validation
@@ -62,30 +62,28 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.RESEND_API_KEY;
     const emailTo = process.env.CONTACT_EMAIL_TO || 'mariajoseduartebarrio@gmail.com';
-    // Default to Resend testing sender until a custom domain is verified
-    const emailFrom = process.env.CONTACT_EMAIL_FROM || 'Maria José Duarte <onboarding@resend.dev>';
+    // Clean potential quotes around the environment variable value
+    let emailFrom = (process.env.CONTACT_EMAIL_FROM || 'Maria José Duarte <onboarding@resend.dev>').replace(/^["']|["']$/g, '').trim();
 
-    // If no API key is configured (e.g. during initial local development or before setting Vercel env vars)
+    console.log('[Contact API] Processing request for:', {
+      to: emailTo,
+      from: emailFrom,
+      hasApiKey: Boolean(apiKey),
+    });
+
+    // Check if API key is missing
     if (!apiKey) {
-      console.warn('[NOTICE] RESEND_API_KEY is not configured in environment variables.');
-      console.log('Form submission received:', {
-        name: cleanName,
-        email: cleanEmail,
-        phone: cleanPhone,
-        modality: cleanModality,
-        message: cleanMessage,
-      });
-      return res.status(200).json({
-        success: true,
-        simulation: true,
-        message: 'Simulation mode: Message processed successfully (add RESEND_API_KEY to send actual emails).',
+      console.error('[Contact API Error] RESEND_API_KEY is not defined in environment variables.');
+      return res.status(500).json({
+        error: 'Configuración incompleta: No se ha encontrado la variable RESEND_API_KEY en Vercel ni en el archivo .env.',
+        code: 'MISSING_API_KEY',
       });
     }
 
     const resend = new Resend(apiKey);
 
     // 3. Email 1: Notification for the psychologist (Maria José)
-    const emailAdminPromise = resend.emails.send({
+    const adminRes = await resend.emails.send({
       from: emailFrom,
       to: [emailTo],
       replyTo: `${cleanName} <${cleanEmail}>`,
@@ -144,76 +142,87 @@ export default async function handler(req, res) {
       `,
     });
 
+    if (adminRes.error) {
+      console.error('[Contact API Error] Resend rejected admin email:', adminRes.error);
+      return res.status(500).json({
+        error: `Error de Resend: ${adminRes.error.message || 'No se pudo enviar el correo'}`,
+        code: adminRes.error.name || 'RESEND_ERROR',
+      });
+    }
+
+    console.log('[Contact API] Admin notification sent successfully:', adminRes.data);
+
     // 4. Email 2: Automated confirmation for the patient
-    const emailPatientPromise = resend.emails.send({
-      from: emailFrom,
-      to: [cleanEmail],
-      replyTo: emailTo,
-      subject: `Hemos recibido tu solicitud de cita | Maria José Duarte Barrio`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fdfbf7; color: #292524; margin: 0; padding: 20px; line-height: 1.6; }
-            .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e7e5e4; padding: 36px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-            h2 { color: #1c1917; margin-top: 0; font-size: 22px; }
-            p { margin: 16px 0; font-size: 15px; color: #44403c; }
-            .summary { background: #fdfbf7; border: 1px solid #f2ece4; border-radius: 12px; padding: 18px; margin: 24px 0; }
-            .summary-title { font-weight: bold; font-size: 14px; color: #1c1917; margin-bottom: 8px; }
-            .summary-item { font-size: 14px; color: #57534e; margin: 4px 0; }
-            .signature { margin-top: 32px; border-top: 1px solid #f2ece4; padding-top: 20px; font-size: 14px; color: #78716c; }
-            .emergency { font-size: 12px; color: #a8a29e; margin-top: 20px; }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <h2>Hola ${cleanName},</h2>
-            <p>Muchas gracias por ponerte en contacto conmigo y por dar este primer paso.</p>
-            <p>He recibido tu solicitud y revisaré tu mensaje con atención. Me pondré en contacto contigo en un plazo de <strong>24 a 48 horas laborables</strong> (a través de este correo electrónico o por WhatsApp/teléfono) para que podamos coordinar una fecha y hora que te venga bien.</p>
-            
-            <div class="summary">
-              <div class="summary-title">Resumen de tu solicitud:</div>
-              <div class="summary-item"><strong>Tipo de consulta:</strong> ${cleanModality}</div>
-              <div class="summary-item"><strong>Teléfono indicado:</strong> ${cleanPhone}</div>
+    // Notice: When using onboarding@resend.dev, Resend restricts delivery ONLY to the account owner.
+    // We only attempt to email the patient if a custom verified domain is active, avoiding 403 test-mode errors.
+    const isTestingDomain = emailFrom.includes('onboarding@resend.dev');
+
+    if (!isTestingDomain) {
+      const patientRes = await resend.emails.send({
+        from: emailFrom,
+        to: [cleanEmail],
+        replyTo: emailTo,
+        subject: `Hemos recibido tu solicitud de cita | Maria José Duarte Barrio`,
+        html: `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fdfbf7; color: #292524; margin: 0; padding: 20px; line-height: 1.6; }
+              .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e7e5e4; padding: 36px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+              h2 { color: #1c1917; margin-top: 0; font-size: 22px; }
+              p { margin: 16px 0; font-size: 15px; color: #44403c; }
+              .summary { background: #fdfbf7; border: 1px solid #f2ece4; border-radius: 12px; padding: 18px; margin: 24px 0; }
+              .summary-title { font-weight: bold; font-size: 14px; color: #1c1917; margin-bottom: 8px; }
+              .summary-item { font-size: 14px; color: #57534e; margin: 4px 0; }
+              .signature { margin-top: 32px; border-top: 1px solid #f2ece4; padding-top: 20px; font-size: 14px; color: #78716c; }
+              .emergency { font-size: 12px; color: #a8a29e; margin-top: 20px; }
+            </style>
+          </head>
+          <body>
+            <div class="card">
+              <h2>Hola ${cleanName},</h2>
+              <p>Muchas gracias por ponerte en contacto conmigo y por dar este primer paso.</p>
+              <p>He recibido tu solicitud y revisaré tu mensaje con atención. Me pondré en contacto contigo en un plazo de <strong>24 a 48 horas laborables</strong> (a través de este correo electrónico o por WhatsApp/teléfono) para que podamos coordinar una fecha y hora que te venga bien.</p>
+              
+              <div class="summary">
+                <div class="summary-title">Resumen de tu solicitud:</div>
+                <div class="summary-item"><strong>Tipo de consulta:</strong> ${cleanModality}</div>
+                <div class="summary-item"><strong>Teléfono indicado:</strong> ${cleanPhone}</div>
+              </div>
+
+              <p>Si necesitas añadir algún detalle más o tu disponibilidad horaria, puedes responder directamente a este correo.</p>
+
+              <div class="signature">
+                <strong>Maria José Duarte Barrio</strong><br>
+                Psicóloga General Sanitaria · Colegiada<br>
+                <a href="https://mariajoseduartebarriopsicologia.com" style="color: #f43f5e; text-decoration: none;">mariajoseduartebarriopsicologia.com</a>
+              </div>
+
+              <p class="emergency">
+                <em>Nota: Este canal no es un servicio de urgencias médicas ni psicológicas. Si estás viviendo una situación de emergencia urgente, por favor contacta con el teléfono de emergencias 112 o la línea de atención a la conducta suicida 024.</em>
+              </p>
             </div>
+          </body>
+          </html>
+        `,
+      });
 
-            <p>Si necesitas añadir algún detalle más o tu disponibilidad horaria, puedes responder directamente a este correo.</p>
-
-            <div class="signature">
-              <strong>Maria José Duarte Barrio</strong><br>
-              Psicóloga General Sanitaria · Colegiada<br>
-              <a href="https://mariajoseduartebarriopsicologia.com" style="color: #f43f5e; text-decoration: none;">mariajoseduartebarriopsicologia.com</a>
-            </div>
-
-            <p class="emergency">
-              <em>Nota: Este canal no es un servicio de urgencias médicas ni psicológicas. Si estás viviendo una situación de emergencia urgente, por favor contacta con el teléfono de emergencias 112 o la línea de atención a la conducta suicida 024.</em>
-            </p>
-          </div>
-        </body>
-        </html>
-      `,
-    });
-
-    // Dispatch both emails in parallel
-    const [adminResult, patientResult] = await Promise.allSettled([
-      emailAdminPromise,
-      emailPatientPromise,
-    ]);
-
-    if (adminResult.status === 'rejected') {
-      console.error('Error sending email to admin:', adminResult.reason);
-      return res.status(500).json({ error: 'Hubo un problema al tramitar tu mensaje. Por favor, contáctanos por WhatsApp.' });
+      if (patientRes.error) {
+        console.warn('[Contact API Warning] Patient confirmation email failed:', patientRes.error);
+      } else {
+        console.log('[Contact API] Patient confirmation sent successfully:', patientRes.data);
+      }
+    } else {
+      console.log('[Contact API] Testing domain (onboarding@resend.dev) active: skipped patient confirmation to prevent test restriction error.');
     }
 
-    if (patientResult.status === 'rejected') {
-      console.warn('Notice: Confirmation email to patient could not be delivered:', patientResult.reason);
-    }
-
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, id: adminRes.data?.id });
   } catch (err) {
-    console.error('Unhandled error in /api/contact:', err);
-    return res.status(500).json({ error: 'Error interno del servidor. Por favor, inténtalo más tarde.' });
+    console.error('[Contact API Fatal Error]:', err);
+    return res.status(500).json({
+      error: `Error interno: ${err.message || 'Por favor, inténtalo más tarde'}`,
+    });
   }
 }
