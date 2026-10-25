@@ -148,6 +148,7 @@ export default async function handler(req, res) {
     const emailPatientPromise = resend.emails.send({
       from: emailFrom,
       to: [cleanEmail],
+      replyTo: emailTo,
       subject: `Hemos recibido tu solicitud de cita | Maria José Duarte Barrio`,
       html: `
         <!DOCTYPE html>
