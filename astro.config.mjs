@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import cloudflare from '@astrojs/cloudflare';
 import contactHandler from './api/contact.js';
 
 // Vite plugin to emulate the Vercel serverless function (/api/contact) during local development (astro dev)
@@ -48,6 +49,7 @@ function devContactApiPlugin() {
 }
 
 export default defineConfig({
+  adapter: cloudflare(),
   integrations: [tailwind()],
   site: 'https://mariajoseduartepsicologa.site',
   vite: {

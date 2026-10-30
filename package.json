@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && cp -r functions dist/functions",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^5.0.0",
     "resend": "^6.34.1",
