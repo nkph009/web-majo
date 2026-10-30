@@ -1,4 +1,4 @@
-# Maria José Duarte Barrio · Health Psychology — Astro Project
+# Majo web · Health Psychology — Astro Project
 
 Website migrated from React + Vite to **Astro** for enhanced performance and SEO.
 
