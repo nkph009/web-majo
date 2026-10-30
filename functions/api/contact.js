@@ -1,5 +1,3 @@
-import { Resend } from 'resend';
-
 // Mapping therapy modalities to human-readable labels
 const MODALITY_LABELS = {
   individual: 'Terapia para traumas',
@@ -27,12 +25,50 @@ const jsonResponse = (data, status = 200) =>
     },
   });
 
+// Zero-dependency Resend REST API client (100% native fetch for Cloudflare Workers / Pages)
+async function sendResendEmail({ apiKey, from, to, replyTo, subject, html }) {
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: Array.isArray(to) ? to : [to],
+      reply_to: replyTo,
+      subject,
+      html,
+    }),
+  });
+
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    return {
+      error: {
+        message: data.message || 'Error al comunicarse con la API de Resend',
+        name: data.name || 'RESEND_ERROR',
+        statusCode: res.status,
+      },
+    };
+  }
+  return { data };
+}
+
+// Responds to browser visits (GET) so you can verify the endpoint is active
+export async function onRequestGet() {
+  return jsonResponse({
+    status: 'ok',
+    message: 'El endpoint de contacto de Cloudflare Pages está activo y funcionando. Usa POST para enviar datos.',
+  });
+}
+
 export async function onRequestOptions() {
   return new Response(null, {
     status: 204,
     headers: {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },
   });
@@ -104,10 +140,9 @@ export async function onRequestPost(context) {
       );
     }
 
-    const resend = new Resend(apiKey);
-
     // 3. Email 1: Notification for the psychologist (Maria José)
-    const adminRes = await resend.emails.send({
+    const adminRes = await sendResendEmail({
+      apiKey,
       from: emailFrom,
       to: [emailTo],
       replyTo: `${cleanName} <${cleanEmail}>`,
@@ -183,7 +218,8 @@ export async function onRequestPost(context) {
     const isTestingDomain = emailFrom.includes('onboarding@resend.dev');
 
     if (!isTestingDomain) {
-      const patientRes = await resend.emails.send({
+      const patientRes = await sendResendEmail({
+        apiKey,
         from: emailFrom,
         to: [cleanEmail],
         replyTo: emailTo,
@@ -254,4 +290,3 @@ export async function onRequestPost(context) {
     );
   }
 }
-
