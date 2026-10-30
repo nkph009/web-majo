@@ -75,21 +75,21 @@ public/
 
 > Zero React, zero Motion, zero Radix, zero heavy UI frameworks. Pure semantic HTML + CSS + minimal vanilla JS.
 
-## ✉️ Contact Form (Resend + Vercel Functions)
+## ✉️ Contact Form (Resend + Cloudflare Pages / Vercel Functions)
 
-The form automatically sends two emails using the serverless function in `api/contact.js`:
+The form automatically sends two emails using the serverless function in `functions/api/contact.js` (for Cloudflare Pages) or `api/contact.js` (for Vercel):
 1. Notification to the psychologist containing all patient details and direct links to reply by email or WhatsApp.
 2. Automated confirmation email to the patient acknowledging receipt.
 
-### Required Environment Variables in Vercel:
+### Required Environment Variables in Cloudflare Pages / Vercel:
 
-Configure in **Vercel Dashboard → Project Settings → Environment Variables**:
+Configure in **Cloudflare Pages → Project Settings → Environment Variables** (or Vercel):
 
 | Variable | Description | Example |
 |---|---|---|
 | `RESEND_API_KEY` | Resend API Key (free tier includes up to 3,000 emails/month) | `re_123456789...` |
-| `CONTACT_EMAIL_TO` | Email address where the psychologist receives inquiries | `mariajoseduartebarrio@gmail.com` |
-| `CONTACT_EMAIL_FROM` | Verified sender email address in Resend | `Maria José Duarte <onboarding@resend.dev>` or custom domain |
+| `CONTACT_EMAIL_TO` | Email address where the psychologist receives inquiries | `contacto@mariajoseduartepsicologa.site` |
+| `CONTACT_EMAIL_FROM` | Verified sender email address in Resend | `Maria José Duarte <contacto@mariajoseduartepsicologa.site>` |
 
 *Note: During local development (`npm run dev`), if `RESEND_API_KEY` is not set, the form runs in simulation mode to allow testing the UI and interactions without errors.*
 

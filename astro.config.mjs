@@ -49,7 +49,7 @@ function devContactApiPlugin() {
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://mariajoseduartebarriopsicologia.com',
+  site: 'https://mariajoseduartepsicologa.site',
   vite: {
     plugins: [devContactApiPlugin()],
   },

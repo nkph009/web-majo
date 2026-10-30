@@ -61,9 +61,9 @@ export default async function handler(req, res) {
     });
 
     const apiKey = process.env.RESEND_API_KEY;
-    const emailTo = process.env.CONTACT_EMAIL_TO || 'mariajoseduartebarrio@gmail.com';
+    const emailTo = process.env.CONTACT_EMAIL_TO || 'contacto@mariajoseduartepsicologa.site';
     // Clean potential quotes around the environment variable value
-    let emailFrom = (process.env.CONTACT_EMAIL_FROM || 'Maria José Duarte <onboarding@resend.dev>').replace(/^["']|["']$/g, '').trim();
+    let emailFrom = (process.env.CONTACT_EMAIL_FROM || 'Maria José Duarte <contacto@mariajoseduartepsicologa.site>').replace(/^["']|["']$/g, '').trim();
 
     console.log('[Contact API] Processing request for:', {
       to: emailTo,
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
             </div>
 
             <div class="footer">
-              Recibido el ${dateFormatted} · Sitio web mariajoseduartebarriopsicologia.com
+              Recibido el ${dateFormatted} · Sitio web mariajoseduartepsicologa.site
             </div>
           </div>
         </body>
@@ -196,8 +196,8 @@ export default async function handler(req, res) {
 
               <div class="signature">
                 <strong>Maria José Duarte Barrio</strong><br>
-                Psicóloga General Sanitaria · Colegiada<br>
-                <a href="https://mariajoseduartebarriopsicologia.com" style="color: #f43f5e; text-decoration: none;">mariajoseduartebarriopsicologia.com</a>
+                Psicóloga General Sanitaria · Colegiada AO13522<br>
+                <a href="https://mariajoseduartepsicologa.site" style="color: #f43f5e; text-decoration: none;">mariajoseduartepsicologa.site</a>
               </div>
 
               <p class="emergency">
