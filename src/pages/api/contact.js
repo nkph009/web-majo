@@ -117,7 +117,7 @@ export async function POST(context) {
     const cleanName = sanitize(name.trim());
     const cleanEmail = email.trim();
     const cleanPhone = sanitize(phone.trim());
-    const cleanModality = MODALITY_LABELS[modality] || sanitize(modality || 'No especificado');
+    const cleanModality = modality ? (MODALITY_LABELS[modality] || sanitize(modality)) : null;
     const cleanMessage = sanitize((message || 'Sin mensaje adicional.').trim());
     const dateFormatted = new Date().toLocaleString('es-ES', {
       timeZone: 'Europe/Madrid',
@@ -188,12 +188,12 @@ export async function POST(context) {
               <div class="label">Teléfono / WhatsApp</div>
               <div class="value"><a href="tel:${cleanPhone}">${cleanPhone}</a> | <a href="https://wa.me/${cleanPhone.replace(/\D/g, '')}" target="_blank">Abrir en WhatsApp</a></div>
             </div>
-
+            ${cleanModality ? `
             <div class="item">
               <div class="label">Tipo de terapia seleccionada</div>
               <div class="value"><strong>${cleanModality}</strong></div>
             </div>
-
+            ` : ''}
             <div class="item">
               <div class="label">Motivo o mensaje</div>
               <div class="message-box">${cleanMessage}</div>
@@ -256,7 +256,7 @@ export async function POST(context) {
               
               <div class="summary">
                 <div class="summary-title">Resumen de tu solicitud:</div>
-                <div class="summary-item"><strong>Tipo de consulta:</strong> ${cleanModality}</div>
+                ${cleanModality ? `<div class="summary-item"><strong>Tipo de consulta:</strong> ${cleanModality}</div>` : ''}
                 <div class="summary-item"><strong>Teléfono indicado:</strong> ${cleanPhone}</div>
               </div>
 
