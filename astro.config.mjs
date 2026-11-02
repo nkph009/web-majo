@@ -51,7 +51,7 @@ function devContactApiPlugin() {
 export default defineConfig({
   adapter: cloudflare(),
   integrations: [tailwind()],
-  site: 'https://mariajoseduartepsicologa.site',
+  site: 'https://mariajoseduartepsicologa.com',
   vite: {
     plugins: [devContactApiPlugin()],
   },
