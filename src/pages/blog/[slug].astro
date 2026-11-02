@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+import manosfoto2 from "../../assets/images/manos2.jpeg";
+import relojfoto from "../../assets/images/reloj.jpeg";
+
 export function getStaticPaths() {
   const posts = [
     {
@@ -8,8 +11,7 @@ export function getStaticPaths() {
       title: "Cómo gestionar la ansiedad en el entorno laboral",
       excerpt:
         "Estrategias prácticas para manejar el estrés diario, establecer límites saludables y evitar el burnout profesional.",
-      image:
-        "https://images.unsplash.com/photo-1772408195534-8a080196dd51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      image: relojfoto.src,
       date: "2026-03-12",
       dateDisplay: "12 de marzo de 2026",
       category: "Ansiedad",
@@ -54,8 +56,7 @@ export function getStaticPaths() {
       title: "El secreto de la comunicación asertiva en pareja",
       excerpt:
         "Aprende a expresar tus necesidades sin reproches y a escuchar a tu pareja desde la empatía y la conexión emocional.",
-      image:
-        "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+      image: manosfoto2.src,
       date: "2026-02-28",
       dateDisplay: "28 de febrero de 2026",
       category: "Pareja",
@@ -87,51 +88,6 @@ export function getStaticPaths() {
         {
           type: "p",
           text: "Practica la escucha activa. Escuchar no es esperar tu turno para hablar. Es intentar comprender genuinamente la perspectiva del otro antes de responder.",
-        },
-      ],
-    },
-    {
-      slug: "mindfulness-para-principiantes",
-      title: "Mindfulness para principiantes: 5 ejercicios diarios",
-      excerpt:
-        "Descubre cómo integrar la atención plena en tu rutina con estos sencillos ejercicios que solo te tomarán unos minutos al día.",
-      image:
-        "https://images.unsplash.com/photo-1673219498641-e54db77132a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-      date: "2026-01-15",
-      dateDisplay: "15 de enero de 2026",
-      category: "Mindfulness",
-      author: "Maria José Duarte Barrio",
-      readTime: "4 min",
-      content: [
-        {
-          type: "p",
-          text: "El mindfulness, o atención plena, es la práctica de dirigir nuestra atención al momento presente, sin juzgar. Aunque tiene raíces en la meditación budista, la ciencia occidental lleva décadas estudiando y validando sus beneficios para la salud mental.",
-        },
-        { type: "h2", text: "¿Por qué funciona?" },
-        {
-          type: "p",
-          text: 'Nuestro cerebro pasa la mayor parte del tiempo en "piloto automático", rumiando el pasado o preocupándose por el futuro. El mindfulness entrena la capacidad de regresar al presente, reduciendo la activación del sistema de estrés.',
-        },
-        { type: "h2", text: "5 ejercicios para empezar hoy" },
-        {
-          type: "p",
-          text: "1. Respiración consciente (3 minutos). Simplemente observa tu respiración sin cambiarla. Nota cómo el aire entra y sale. Cuando tu mente se vaya, vuelve suavemente a la respiración.",
-        },
-        {
-          type: "p",
-          text: "2. Scan corporal. Recorre mentalmente tu cuerpo de los pies a la cabeza, observando sensaciones sin intentar cambiarlas.",
-        },
-        {
-          type: "p",
-          text: "3. Comer con atención. En una comida al día, come sin pantallas. Observa sabores, texturas, olores. Come despacio.",
-        },
-        {
-          type: "p",
-          text: "4. Caminar con atención. En tu próximo paseo, presta atención a cada paso. Al contacto del pie con el suelo, a los sonidos del entorno.",
-        },
-        {
-          type: "p",
-          text: "5. Pausa de 1 minuto. Antes de responder un email difícil o entrar a una reunión importante, para un momento, respira tres veces profundamente y observa cómo te sientes.",
         },
       ],
     },

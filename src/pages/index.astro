@@ -1,7 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import majofoto from "../assets/images/majo4.jpeg";
-import majofoto2 from "../assets/images/majo5.jpeg";
+import majofoto from "../assets/images/majo6.jpeg";
+import majofoto2 from "../assets/images/majo7.jpeg";
+import manos from "../assets/images/manos.jpeg";
+import manosfoto2 from "../assets/images/manos2.jpeg";
+import relojfoto from "../assets/images/reloj.jpeg";
 import { Image } from "astro:assets";
 
 const SERVICES = [
@@ -10,19 +13,19 @@ const SERVICES = [
     description:
       "Un espacio para ti donde abordaremos ansiedad, depresión, autoestima, gestión emocional o crisis vitales.",
     image:
-      "https://images.unsplash.com/photo-1703449481095-bb99a6928f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+      manos.src,
     tags: [],
     icon: "user",
   },
-  {
-    title: "Terapia Sensoriomotriz",
-    description:
-      "Es un modelo de psicoterapia que utiliza el cuerpo como herramienta principal para procesar traumas, heridas de apego y problemas de regulación emocional.",
-    image:
-      "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-    tags: [],
-    icon: "users",
-  },
+  // {
+  //   title: "Terapia Sensoriomotriz",
+  //   description:
+  //     "Es un modelo de psicoterapia que utiliza el cuerpo como herramienta principal para procesar traumas, heridas de apego y problemas de regulación emocional.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  //   tags: [],
+  //   icon: "users",
+  // },
 ];
 
 const PRICING = [
@@ -147,8 +150,7 @@ const RECENT_POSTS = [
     title: "Cómo gestionar la ansiedad en el entorno laboral",
     excerpt:
       "Estrategias prácticas para manejar el estrés diario, establecer límites saludables y evitar el burnout profesional.",
-    image:
-      "https://images.unsplash.com/photo-1772408195534-8a080196dd51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    image: relojfoto.src,
     date: "12 Mar, 2026",
     category: "Ansiedad",
   },
@@ -157,8 +159,7 @@ const RECENT_POSTS = [
     title: "El secreto de la comunicación asertiva en pareja",
     excerpt:
       "Aprende a expresar tus necesidades sin reproches y a escuchar a tu pareja desde la empatía y la conexión emocional.",
-    image:
-      "https://images.unsplash.com/photo-1758524055179-99ee75e6115b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    image: manosfoto2.src,
     date: "28 Feb, 2026",
     category: "Pareja",
   },
@@ -486,7 +487,11 @@ const RECENT_POSTS = [
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
+      <div
+        class={SERVICES.length === 1
+          ? "max-w-xl mx-auto mb-20"
+          : "grid md:grid-cols-2 gap-8 lg:gap-12 mb-20"}
+      >
         {
           SERVICES.map((service) => (
             <article class="reveal group bg-stone-50 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
