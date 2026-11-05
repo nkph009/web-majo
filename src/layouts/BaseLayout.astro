@@ -18,8 +18,20 @@ const {
   noindex = false,
 } = Astro.props;
 
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") || "https://mariajoseduartepsicologa.com";
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+
+const resolvedOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : `${siteUrl}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
+
 const siteName = "Maria José Duarte Barrio · Psicología Sanitaria";
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const fullTitle =
+  title === siteName ||
+  title.includes("Maria José Duarte") ||
+  title.includes("Majo Duarte")
+    ? title
+    : `${title} | ${siteName}`;
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/#inicio" },
@@ -42,15 +54,15 @@ const NAV_LINKS = [
     <!-- Primary SEO -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="es_ES" />
 
@@ -58,7 +70,7 @@ const NAV_LINKS = [
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
 
     <!-- Schema.org Psychologist & MedicalBusiness -->
     <script type="application/ld+json">
