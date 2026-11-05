@@ -80,12 +80,12 @@ const FAQS = [
   {
     question: "¿Cuántas sesiones necesitaré?",
     answer:
-      "No. No tienes que hablar de nada para lo que todavía no te sientas preparada.<br><br>En el trabajo con trauma es especialmente importante respetar tu ritmo. No se trata de obligarte a recordar o revivir experiencias difíciles, sino de construir primero un espacio en el que puedas sentirte segura.",
+      "Depende completamente de cada persona y de sus objetivos.<br><br>Mi enfoque es dotarte de herramientas para que puedas ser autónomo/a lo antes posible, pero el ritmo lo marcas tú.",
   },
   {
     question: "¿Tengo que contar todo lo que me ha pasado?",
     answer:
-      "Depende completamente de cada persona y de sus objetivos.<br><br>Mi enfoque es dotarte de herramientas para que puedas ser autónomo/a lo antes posible, pero el ritmo lo marcas tú.",
+      "No. No tienes que hablar de nada para lo que todavía no te sientas preparada.<br><br>En el trabajo con trauma es especialmente importante respetar tu ritmo. No se trata de obligarte a recordar o revivir experiencias difíciles, sino de construir primero un espacio en el que puedas sentirte segura.",
   },
   {
     question: "¿Y si me cuesta hablar de lo que siento?",
@@ -164,12 +164,26 @@ const RECENT_POSTS = [
     category: "Pareja",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQS.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title="Psicóloga Online y Presencial en Málaga · Maria José Duarte Barrio"
   description="Psicóloga colegiada especializada en ansiedad, depresión y terapia de pareja. Sesiones online y presenciales en Málaga. Basado en evidencia científica. Primera consulta informativa gratuita."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <!-- ==============================
        HERO
   ============================== -->

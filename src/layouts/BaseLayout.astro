@@ -60,31 +60,81 @@ const NAV_LINKS = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Schema.org LocalBusiness -->
+    <!-- Schema.org Psychologist & MedicalBusiness -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        "name": "Maria José Duarte Barrio · Psicología Sanitaria",
-        "description": "Acompañamiento psicológico profesional online. Especializada en ansiedad, depresión y terapia de pareja.",
-        "url": "https://mariajoseduartepsicologa.com",
-        "telephone": "+34616312699 ",
-        "email": "mjduarte.psicologa@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Calle Salitre",
-          "addressLocality": "Málaga",
-          "addressCountry": "ES"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "40.4286",
-          "longitude": "-3.7130"
-        },
-        "priceRange": "€€",
-        "openingHours": "Mo-Fr 09:00-20:00",
-        "medicalSpecialty": "Psychiatry",
-        "sameAs": []
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://mariajoseduartepsicologa.com/#person",
+            "name": "Maria José Duarte Barrio",
+            "alternateName": "Majo Duarte",
+            "jobTitle": "Psicóloga General Sanitaria",
+            "description": "Psicóloga General Sanitaria colegiada (Nº AO13522). Especializada en terapia online, trauma, apego, terapia sensoriomotriz y acompañamiento a personas adultas neurodivergentes.",
+            "url": "https://mariajoseduartepsicologa.com",
+            "telephone": "+34616312699",
+            "email": "mjduarte.psicologa@gmail.com",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Colegiación Profesional",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colegio Oficial de Psicología de Andalucía Oriental (COPAO)"
+                },
+                "identifier": "AO13522"
+              }
+            ],
+            "knowsAbout": [
+              "Psicoterapia online",
+              "Terapia Sensoriomotriz",
+              "Trauma y apego",
+              "Neurodivergencia en personas adultas",
+              "Ansiedad y regulación emocional"
+            ]
+          },
+          {
+            "@type": ["Psychologist", "MedicalBusiness"],
+            "@id": "https://mariajoseduartepsicologa.com/#organization",
+            "name": "Maria José Duarte Barrio · Psicología Sanitaria",
+            "description": "Acompañamiento psicológico profesional online y presencial en Málaga. Especializada en trauma, apego, terapia sensoriomotriz y neurodivergencia en adultos.",
+            "url": "https://mariajoseduartepsicologa.com",
+            "telephone": "+34616312699",
+            "email": "mjduarte.psicologa@gmail.com",
+            "priceRange": "€€",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Transferencia bancaria",
+            "openingHours": "Mo-Fr 09:00-20:00",
+            "medicalSpecialty": "Psychology",
+            "areaServed": [
+              {
+                "@type": "Country",
+                "name": "España"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Online"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Salitre",
+              "addressLocality": "Málaga",
+              "addressRegion": "Málaga",
+              "postalCode": "29002",
+              "addressCountry": "ES"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "36.7134",
+              "longitude": "-4.4287"
+            },
+            "founder": {
+              "@id": "https://mariajoseduartepsicologa.com/#person"
+            }
+          }
+        ]
       }
     </script>
 
