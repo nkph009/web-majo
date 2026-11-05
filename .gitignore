@@ -24,3 +24,6 @@ Thumbs.db
 # Tool cache (Vite, TypeScript, etc.)
 .vite/
 .turbo/
+
+# AI skills
+.agent/

@@ -200,7 +200,7 @@ export async function POST(context) {
             </div>
 
             <div class="footer">
-              Recibido el ${dateFormatted} · Sitio web mariajoseduartepsicologa.site
+              Recibido el ${dateFormatted} · Sitio web mariajoseduartepsicologa.com
             </div>
           </div>
         </body>
@@ -265,7 +265,7 @@ export async function POST(context) {
               <div class="signature">
                 <strong>Maria José Duarte Barrio</strong><br>
                 Psicóloga General Sanitaria · Colegiada AO13522<br>
-                <a href="https://mariajoseduartepsicologa.com" style="color: #f43f5e; text-decoration: none;">mariajoseduartepsicologa.site</a>
+                <a href="https://mariajoseduartepsicologa.com" style="color: #f43f5e; text-decoration: none;">mariajoseduartepsicologa.com</a>
               </div>
 
               <p class="emergency">
