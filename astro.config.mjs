@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
@@ -60,5 +60,10 @@ export default defineConfig({
   site: 'https://mariajoseduartepsicologa.com',
   vite: {
     plugins: [devContactApiPlugin()],
+  },
+  env: {
+    schema: {
+      MAJO_ID: envField.string({ context: 'server', access: 'secret', default: '00000000-A' }),
+    },
   },
 });
