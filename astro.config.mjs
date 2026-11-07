@@ -50,6 +50,7 @@ function devContactApiPlugin() {
 }
 
 export default defineConfig({
+  trailingSlash: 'always',
   adapter: cloudflare(),
   integrations: [
     tailwind(),

@@ -95,7 +95,7 @@ export const POSTS = [
                   class="text-xl font-serif font-medium text-stone-900 mb-4 group-hover:text-teal-700 transition-colors"
                   itemprop="headline"
                 >
-                  <a href={`/blog/${post.slug}`} itemprop="url">
+                  <a href={`/blog/${post.slug}/`} itemprop="url">
                     {post.title}
                   </a>
                 </h2>
@@ -115,7 +115,7 @@ export const POSTS = [
                     <span itemprop="name">{post.author}</span>
                   </span>
                   <a
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/${post.slug}/`}
                     class="inline-flex items-center gap-2 text-teal-700 font-medium hover:text-teal-800 transition-colors text-sm"
                   >
                     Leer

@@ -12,14 +12,19 @@ interface Props {
 const {
   title,
   description,
-  canonical = Astro.url.href,
+  canonical,
   ogImage = "/og-default.jpg",
   ogType = "website",
   noindex = false,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") || "https://mariajoseduartepsicologa.com";
-const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const rawCanonical = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const canonicalUrlObj = new URL(rawCanonical, siteUrl);
+if (!canonicalUrlObj.pathname.endsWith("/") && !canonicalUrlObj.pathname.includes(".")) {
+  canonicalUrlObj.pathname = `${canonicalUrlObj.pathname}/`;
+}
+const canonicalUrl = canonicalUrlObj.href;
 
 const resolvedOgImage = ogImage.startsWith("http")
   ? ogImage
@@ -35,12 +40,12 @@ const fullTitle =
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/#inicio" },
-  { label: "Sobre mí", href: "/sobre-mi" },
-  { label: "Terapias", href: "/terapias" },
+  { label: "Sobre mí", href: "/sobre-mi/" },
+  { label: "Terapias", href: "/terapias/" },
   { label: "Cómo funciona", href: "/#como-funciona" },
   { label: "Tarifa", href: "/#tarifas" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog", href: "/blog/" },
 ];
 ---
 
@@ -363,14 +368,14 @@ const NAV_LINKS = [
           </h4>
           <ul class="flex flex-col gap-2 text-sm">
             <li>
-              <a href="/#sobre-mi" class="hover:text-teal-400 transition-colors"
+              <a href="/sobre-mi/" class="hover:text-teal-400 transition-colors"
                 >Sobre mí</a
               >
             </li>
             <li>
               <a
-                href="/#servicios"
-                class="hover:text-teal-400 transition-colors">Servicios</a
+                href="/terapias/"
+                class="hover:text-teal-400 transition-colors">Terapias</a
               >
             </li>
             <li>
@@ -379,7 +384,7 @@ const NAV_LINKS = [
               >
             </li>
             <li>
-              <a href="/blog" class="hover:text-teal-400 transition-colors"
+              <a href="/blog/" class="hover:text-teal-400 transition-colors"
                 >Blog</a
               >
             </li>
@@ -420,9 +425,9 @@ const NAV_LINKS = [
           Psicología. Todos los derechos reservados.
         </p>
         <div class="flex gap-4 mt-4 md:mt-0 justify-center">
-          <a href="/aviso-legal" class="hover:text-stone-300">Aviso Legal</a>
-          <a href="/politica-de-privacidad" class="hover:text-stone-300">Privacidad</a>
-          <a href="/cookies" class="hover:text-stone-300">Cookies</a>
+          <a href="/aviso-legal/" class="hover:text-stone-300">Aviso Legal</a>
+          <a href="/politica-de-privacidad/" class="hover:text-stone-300">Privacidad</a>
+          <a href="/cookies/" class="hover:text-stone-300">Cookies</a>
         </div>
       </div>
     </footer>
