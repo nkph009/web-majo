@@ -65,6 +65,7 @@ export default defineConfig({
   env: {
     schema: {
       MAJO_ID: envField.string({ context: 'server', access: 'secret', default: '00000000-A' }),
+      LOCAL_ADDRESS: envField.string({ context: 'server', access: 'secret', default: 'Calle prueba, 29002 Málaga, España' })
     },
   },
 });

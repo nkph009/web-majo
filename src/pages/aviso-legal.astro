@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { MAJO_ID } from "astro:env/server";
+import { MAJO_ID, LOCAL_ADDRESS } from "astro:env/server";
 ---
 
 <BaseLayout
@@ -28,7 +28,7 @@ import { MAJO_ID } from "astro:env/server";
             Electrónico (LSSI-CE), se informa de los siguientes datos:
             Titular: Maria José Duarte Barrio, con NIF {MAJO_ID}, número de colegiada AO13522,
             perteneciente al Colegio Oficial de Psicología de Andalucía Oriental (COPAO),
-            con domicilio profesional en Calle Salitre, 29002 Málaga, España, email de contacto mjduarte.psicologa@gmail.com y teléfono +34 616 31 26 99.
+            con domicilio profesional en {LOCAL_ADDRESS}, email de contacto mjduarte.psicologa@gmail.com y teléfono +34 616 31 26 99.
             La presente web tiene como finalidad la prestación de servicios profesionales de psicología sanitaria en modalidad online.
           </p>
         </section>
