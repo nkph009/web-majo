@@ -1,7 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Página no encontrada — 404" description="No se encontró la página. Vuelve al inicio para continuar.">
+<BaseLayout
+    title="Página no encontrada — 404"
+    description="No se encontró la página. Vuelve al inicio para continuar."
+    noindex={true}
+>
     <div class="bg-amber-50">
         <main class="container mx-auto px-4 py-24 max-w-3xl text-center">
             <p class="text-sm uppercase tracking-[0.3em] font-semibold mb-6">Error 404</p>

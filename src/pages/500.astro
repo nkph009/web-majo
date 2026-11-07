@@ -1,7 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Error interno — 500" description="Ha ocurrido un error interno del servidor. Intenta de nuevo más tarde.">
+<BaseLayout
+    title="Error interno — 500"
+    description="Ha ocurrido un error interno del servidor. Intenta de nuevo más tarde."
+    noindex={true}
+>
     <div class="bg-amber-50">
         <main class="container mx-auto px-4 py-24 max-w-3xl text-center">
             <p class="text-sm uppercase tracking-[0.3em] text-rose-600 font-semibold mb-6">Error 500</p>

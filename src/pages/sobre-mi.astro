@@ -61,6 +61,25 @@ const VALORES = [
   title="Sobre mí · Psicóloga Sanitaria Colegiada"
   description="Conoce a Maria José Duarte Barrio (Majo), psicóloga general sanitaria colegiada (AO13522). Especializada en terapia online, trauma, apego y terapia Sensoriomotriz."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://mariajoseduartepsicologa.com/sobre-mi/#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://mariajoseduartepsicologa.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sobre mí",
+        "item": "https://mariajoseduartepsicologa.com/sobre-mi/"
+      }
+    ]
+  })} />
   <!-- ==============================
        INTRO
   ============================== -->
