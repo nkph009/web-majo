@@ -31,12 +31,13 @@ const resolvedOgImage = ogImage.startsWith("http")
   : `${siteUrl}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
 
 const siteName = "Maria José Duarte Barrio · Psicología Sanitaria";
+const brandSuffix = "Majo Duarte";
 const fullTitle =
   title === siteName ||
   title.includes("Maria José Duarte") ||
   title.includes("Majo Duarte")
     ? title
-    : `${title} | ${siteName}`;
+    : `${title} | ${brandSuffix}`;
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/#inicio" },
